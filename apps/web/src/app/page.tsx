@@ -1,5 +1,4 @@
-import { Gallery } from "@/components/showcase/gallery";
-
+import { redirect } from 'next/navigation';
 export default function Home() {
-  return <Gallery />;
+  redirect('/docs');
 }

@@ -1,43 +1,39 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
-import { Shell } from "@/components/showcase/shell";
-import { ThemeProvider } from "@/components/theme-provider";
-import "./globals.css";
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
+/* eslint-disable @next/next/no-page-custom-font -- This stylesheet is in the shared App Router root layout. */
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import { Shell } from '@/components/docs/shell';
+import './globals.css';
+const geist = localFont({
+  src: '../fonts/geist-latin.woff2',
+  variable: '--font-geist',
+  weight: '100 900',
+  display: 'swap'
 });
-
-const noto = Noto_Sans_JP({
-  variable: "--font-noto",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const mono = localFont({
+  src: '../fonts/geist-mono-latin.woff2',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+  display: 'swap'
 });
-
-const mono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "AwesomeDS",
-  description:
-    "AwesomeDS の正本ショーケース。色・書体・余白・部品・動きを、サイト自身が使って見せる。",
+  title: {
+    default: 'AwesomeDS · Documentation',
+    template: '%s · AwesomeDS'
+  },
+  description: 'AwesomeDS foundations, interactive component previews, and internal design skills.'
 };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <html
-      lang="ja"
-      suppressHydrationWarning
-      className={`${geist.variable} ${noto.variable} ${mono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full">
-        <ThemeProvider>
-          <Shell>{children}</Shell>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  return <html lang="en" suppressHydrationWarning className={`${geist.variable} ${mono.variable}`}>
+    <head>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=swap" />
+      <script dangerouslySetInnerHTML={{
+        __html: `try{document.documentElement.classList.toggle('dark',localStorage.getItem('awesomeds-theme')==='dark')}catch{}`
+      }} />
+    </head>
+    <body><Shell>{children}</Shell></body>
+  </html>;
 }
