@@ -15,3 +15,5 @@ pnpm dev
 pnpm build
 pnpm start
 ```
+
+Verifier: `/` `/#states` `/#motion` `/#thinking` `/knowledge` `/does-not-exist`。詳細はリポジトリ直下 README。

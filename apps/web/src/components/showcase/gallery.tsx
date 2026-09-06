@@ -5,6 +5,8 @@ import { InteractiveKit } from "@/components/showcase/interactive";
 import { LottieMark } from "@/components/showcase/lottie-mark";
 import { MotionChip } from "@/components/showcase/motion-chip";
 import { Section } from "@/components/showcase/section";
+import { StatusPanel } from "@/components/showcase/status-panel";
+import { Thinking } from "@/components/showcase/thinking";
 import { TokenOrbit } from "@/components/showcase/token-orbit";
 import { knowledgeItems } from "@/lib/knowledge";
 import { tokens } from "@/lib/tokens";
@@ -36,12 +38,12 @@ export function Gallery() {
           AwesomeDS
         </h1>
         <p className="mt-5 max-w-[40rem] text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
-          Stitch 形式の正本。このページの CSS 変数は
+          正本のトークンを、このページ自身が使う。CSS 変数は
           <code className="mx-1 font-mono text-[13px] text-foreground">AwesomeDS/tokens.json</code>
-          の semantic 層と同じ。ブランドが無いときはこれを直接使う。
+          の semantic 層。ブランドが無いときはこれを直接使う。
         </p>
         <p className="mt-2 max-w-[40rem] text-[13px] leading-[1.65] text-muted-foreground">
-          Living canon for agents. Japanese first, English labels beside the work.
+          JA first。英語はラベルだけ。
         </p>
         <dl className="mt-8 grid grid-cols-2 gap-4 text-[13px] sm:grid-cols-4">
           <div>
@@ -174,6 +176,15 @@ export function Gallery() {
       </Section>
 
       <Section
+        id="states"
+        eyebrow="States"
+        title="状態"
+        why="空は最初の操作。読込は骨格。失敗は再試行。壊れたように見せない。"
+      >
+        <StatusPanel />
+      </Section>
+
+      <Section
         id="chat"
         eyebrow="assistant-ui"
         title="会話"
@@ -186,7 +197,7 @@ export function Gallery() {
         id="motion"
         eyebrow="Motion"
         title="動き"
-        why="既定は motion/react と CSS。Lottie は完了の合図。three.js はトークン3色の島。Reduce Motion では軌道を止める。"
+        why="既定は motion/react と CSS。Lottie は完了の合図。three.js は白・墨・青の島。自動では回さない。Reduce Motion では静物。"
       >
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
@@ -194,9 +205,6 @@ export function Gallery() {
               Lottie · 完了
             </p>
             <LottieMark />
-            <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
-              値が確定した瞬間に一度だけ再生する。ループしない。
-            </p>
           </div>
           <div>
             <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
@@ -204,7 +212,7 @@ export function Gallery() {
             </p>
             <TokenOrbit />
             <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
-              白・青・Funnel。ブランド3色の軽い島。Orange はこの島とバッジだけ。
+              白・墨・青。Funnel は色見本と Funnel バッジだけ。
             </p>
           </div>
         </div>
@@ -225,6 +233,15 @@ export function Gallery() {
             <dd className="mt-1">{tokens.motion.slow}ms · 階層の変化</dd>
           </div>
         </dl>
+      </Section>
+
+      <Section
+        id="thinking"
+        eyebrow="Design thinking"
+        title="思考"
+        why="対象は作業者。デモグラは置かない。ジャーニーは6手。止まった箇所だけ直す。"
+      >
+        <Thinking />
       </Section>
 
       <Section
@@ -255,7 +272,7 @@ export function Gallery() {
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="flex flex-col gap-1 px-5 py-4 hover:bg-accent/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
+                className="flex min-h-10 flex-col gap-1 px-5 py-4 hover:bg-accent/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
               >
                 <span className="flex items-baseline justify-between gap-3">
                   <span className="text-[15px]">{item.title}</span>

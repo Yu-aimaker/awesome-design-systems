@@ -37,3 +37,13 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 - Web: Next.js App Router、TypeScript strict、Tailwind、shadcn 型部品。
 - チャット面が必要なら assistant-ui を足す。
 - 3D が必要なら `three` を直接。ラッパーは必須になるまで入れない。
+
+## 合格（これ以外は後回し）
+
+- 目的が1文で書ける
+- 部品は semantic のみ。Hex を JSX に書いていない
+- 1面の primary は1つ。Funnel は 0–2
+- フォーカスリングが見える
+- `prefers-reduced-motion` でループと大きな移動が止まる
+- 破壊操作に stop と undo がある
+- 空 / 失敗に次の手がある

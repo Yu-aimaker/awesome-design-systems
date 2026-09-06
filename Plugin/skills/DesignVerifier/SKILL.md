@@ -63,3 +63,9 @@ description: Adversarial design verification against AwesomeDS and the product D
 - 「全体的に綺麗」で合格にすること
 - 実装者に「意図は？」と聞いて納得して終えること（コードと画面で確認する）
 - キャプチャ無しで Verifier 完了を宣言すること
+
+## 合格（これ以外は後回し）
+
+- キャプチャ表の全行に URL・幅・手順・合否がある
+- 1行でも欠けたら未完了。見た目の一枚撮りは検証ではない
+- 不合格は「事実 / 根拠の節 / 直し」の3行で書く
