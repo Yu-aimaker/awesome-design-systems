@@ -2,9 +2,9 @@
 
 | 役割 | ファミリー | 使う場所 |
 | --- | --- | --- |
-| Display | Newsreader | ページタイトル、セクション見出し |
-| Sans | IBM Plex Sans JP | 本文、UI、和文 |
-| Mono | IBM Plex Mono | トークン名、コード、ラベル |
+| Latin UI | Geist | 見出しと UI |
+| 日本語 | Noto Sans JP | 本文・和文 |
+| Mono | Geist Mono | トークン名、コード、ラベル |
 
 ## 尺度
 
@@ -19,8 +19,8 @@
 
 ## なぜこの組み合わせか
 
-- Newsreader は見出し専用のセリフ。Geist / Inter / スペースグロテスクの量産感を避ける。
-- IBM Plex Sans JP は和欧の幅が揃い、UI の数字が崩れにくい。
+- Geist は Latin の既定。Inter は使わない。
+- 日本語は Noto Sans JP。本文で別フォントを差し込まない。
 - 本文 16 / 行間 1.75 は日本語の可読域（awesome-design-md-jp）。
 - ラベルだけトラッキングを開く。本文でトラッキングを開きすぎない。
 
