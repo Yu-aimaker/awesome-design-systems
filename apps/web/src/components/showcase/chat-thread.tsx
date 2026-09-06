@@ -18,7 +18,7 @@ const seed: DemoMessage[] = [
   { role: "user", content: "この画面の決定色はどれ？" },
   {
     role: "assistant",
-    content: "semantic の primary（青）。保存や次へにだけ使う。ナビ全体には塗らない。Funnel Orange は任意で1–2。",
+    content: "semantic の primary（青）。保存や次へにだけ使う。ナビ全体には塗らない。",
   },
 ];
 
@@ -30,8 +30,8 @@ const convertMessage = (message: DemoMessage): ThreadMessageLike => ({
 function replyTo(input: string): string {
   const text = input.trim();
   if (!text) return "空の送信です。本文を入れてください。";
-  if (/色|カラー|プライマリ|primary|color|blue|青|forest|funnel|オレンジ/i.test(text)) {
-    return "primary は青。Funnel Orange は任意で1面に最大1–2。部品は semantic 名だけ使う。Hex を JSX に書かない。";
+  if (/色|カラー|プライマリ|primary|color|blue|青|forest|オレンジ/i.test(text)) {
+    return "primary は青1色。部品は semantic 名だけ使う。Hex を JSX に書かない。";
   }
   if (/書体|フォント|font|geist|noto/i.test(text)) {
     return "Latin は Geist、日本語は Noto Sans JP。本文 16 / 行間 1.75。";
@@ -51,24 +51,24 @@ function ThreadView() {
         <ThreadPrimitive.Messages
           components={{
             UserMessage: () => (
-              <MessagePrimitive.Root className="mb-3 ml-10 rounded-md bg-primary px-3 py-2 text-[14px] leading-[1.65] text-primary-foreground">
+              <MessagePrimitive.Root className="mb-3 ml-4 rounded-md bg-primary px-3 py-2 text-[14px] leading-[1.65] text-primary-foreground sm:ml-10">
                 <MessagePrimitive.Parts />
               </MessagePrimitive.Root>
             ),
             AssistantMessage: () => (
-              <MessagePrimitive.Root className="mb-3 mr-10 rounded-md border border-border bg-background px-3 py-2 text-[14px] leading-[1.65] text-foreground">
+              <MessagePrimitive.Root className="mb-3 mr-4 rounded-md border border-border bg-background px-3 py-2 text-[14px] leading-[1.65] text-foreground sm:mr-10">
                 <MessagePrimitive.Parts />
               </MessagePrimitive.Root>
             ),
           }}
         />
       </ThreadPrimitive.Viewport>
-      <ComposerPrimitive.Root className="flex gap-2 border-t border-border p-3">
+      <ComposerPrimitive.Root className="flex min-w-0 gap-2 border-t border-border p-3">
         <ComposerPrimitive.Input
           placeholder="トークンについて聞く"
-          className="h-10 flex-1 rounded-md border border-input bg-background px-3 text-[14px] text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          className="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-[14px] text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         />
-        <ComposerPrimitive.Send className="inline-flex h-10 items-center rounded-md bg-primary px-3 text-[14px] text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+        <ComposerPrimitive.Send className="inline-flex h-10 shrink-0 items-center rounded-md bg-primary px-3 text-[14px] text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
           送る
         </ComposerPrimitive.Send>
       </ComposerPrimitive.Root>

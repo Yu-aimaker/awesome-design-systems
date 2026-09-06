@@ -50,7 +50,7 @@ Vercel に出すときは Root Directory を `apps/web` にする。`apps/web/ve
 | `/#components` | 部品。空送信エラー、削除の stop / undo |
 | `/#states` | 空 / 読込 / 失敗。再試行がある |
 | `/#chat` | 会話。履歴を消すと空状態。直前を戻す |
-| `/#motion` | Lottie は再生/停止。three.js は止まった島、任意で回す。Funnel はバッジと色見本だけ |
+| `/#motion` | Lottie は再生/停止。three.js は止まった島、任意で回す。白・墨・青 |
 | `/#thinking` | ペルソナ2、ジャーニー6手、成功/失敗/中断 |
 | `/knowledge` | 知見。ソースリンクは primary |
 | `/knowledge` で存在しない語 | 空状態。「条件を消す」 |
