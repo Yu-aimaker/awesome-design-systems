@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans_JP, Newsreader } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import { Shell } from "@/components/showcase/shell";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const display = Newsreader({
-  variable: "--font-display",
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+
+const noto = Noto_Sans_JP({
+  variable: "--font-noto",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
 
-const sans = IBM_Plex_Sans_JP({
-  variable: "--font-sans-jp",
+const mono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -31,10 +30,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ja"
-      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${geist.variable} ${noto.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
-        <Shell>{children}</Shell>
+        <ThemeProvider>
+          <Shell>{children}</Shell>
+        </ThemeProvider>
       </body>
     </html>
   );

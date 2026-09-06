@@ -10,7 +10,7 @@ export function LottieMark() {
 
   return (
     <div className="flex flex-col items-start gap-4">
-      <div className="flex h-40 w-40 items-center justify-center rounded-lg border border-line bg-surface">
+      <div className="flex h-40 w-40 items-center justify-center rounded-lg border border-border bg-card">
         <Lottie
           key={key}
           src={check}

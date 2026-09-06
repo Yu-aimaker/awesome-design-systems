@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { ChatThread } from "@/components/showcase/chat-thread";
 import { InteractiveKit } from "@/components/showcase/interactive";
 import { LottieMark } from "@/components/showcase/lottie-mark";
+import { MotionChip } from "@/components/showcase/motion-chip";
 import { Section } from "@/components/showcase/section";
 import { TokenOrbit } from "@/components/showcase/token-orbit";
 import { knowledgeItems } from "@/lib/knowledge";
-import { colorRoles, tokens } from "@/lib/tokens";
+import { tokens } from "@/lib/tokens";
 
 const typeRows = [
   { name: "display", sample: "見出しは読む前に順位を決める", spec: tokens.type.display },
@@ -17,43 +19,43 @@ const typeRows = [
 ] as const;
 
 const principles = [
-  { n: "01", t: "目的が先", d: "画面は今の作業と次の一手が先に読める。世界観の説明は置かない。" },
-  { n: "02", t: "階層は型と余白", d: "色や影で順位をごまかさない。サイズ、行間、間隔の3つで付ける。" },
-  { n: "03", t: "アクセントは決定", d: "森色は保存・次へ・成功。ナビとアイコン全部には塗らない。" },
-  { n: "04", t: "日本語を前提", d: "本文は和文サンセリフ。行間1.75。禁則を切らない。" },
-  { n: "05", t: "状態を隠さない", d: "空、読込、失敗を設計する。スケルトンだけで動かない。" },
-  { n: "06", t: "動きは結果の合図", d: "値が変わったときだけ動かす。180ms。ループ装飾は置かない。" },
+  { n: "01", t: "Purpose", d: "この面の目的を1文で書く。書けない画面は作らない。" },
+  { n: "02", t: "Agency", d: "止められる、戻れる、失敗しても次の手が残る。" },
+  { n: "03", t: "Simplicity", d: "部品を足す前に、コピーと順序で足りるか見る。" },
+  { n: "04", t: "Craft", d: "semantic トークン、禁則、フォーカスを守る。" },
+  { n: "05", t: "Delight", d: "結果が変わった瞬間だけ動かす。ループ装飾は置かない。" },
+  { n: "06", t: "Long-view", d: "来週同じルールで部品を足せるか。例外を増やさない。" },
 ];
 
 export function Gallery() {
   return (
     <div>
       <header className="pb-12">
-        <Badge>Canon 0.1.0</Badge>
-        <h1 className="mt-5 max-w-[18ch] font-display text-[48px] leading-[1.15] tracking-[-0.02em] text-ink">
+        <Badge>Canon 0.2.0</Badge>
+        <h1 className="mt-5 max-w-[18ch] text-[48px] leading-[1.15] font-medium tracking-[-0.03em] text-foreground">
           AwesomeDS
         </h1>
-        <p className="mt-5 max-w-[40rem] text-[16px] leading-[1.75] tracking-[0.02em] text-ink-muted">
-          エージェントがそのまま使える正本。このページの色・書体・余白・部品は
-          <code className="mx-1 font-mono text-[13px] text-ink">AwesomeDS/tokens.json</code>
-          と同じ値です。ブランドが無いときはこれを直接使う。
+        <p className="mt-5 max-w-[40rem] text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
+          Stitch 形式の正本。このページの CSS 変数は
+          <code className="mx-1 font-mono text-[13px] text-foreground">AwesomeDS/tokens.json</code>
+          の semantic 層と同じ。ブランドが無いときはこれを直接使う。
         </p>
         <dl className="mt-8 grid grid-cols-2 gap-4 text-[13px] sm:grid-cols-4">
           <div>
-            <dt className="font-mono uppercase tracking-[0.06em] text-ink-subtle">地</dt>
-            <dd className="mt-1 text-ink">紙 / 墨</dd>
+            <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">地</dt>
+            <dd className="mt-1">paper / ink · .dark</dd>
           </div>
           <div>
-            <dt className="font-mono uppercase tracking-[0.06em] text-ink-subtle">決定色</dt>
-            <dd className="mt-1 text-ink">森 #1F4D3A</dd>
+            <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">決定色</dt>
+            <dd className="mt-1">primary · forest</dd>
           </div>
           <div>
-            <dt className="font-mono uppercase tracking-[0.06em] text-ink-subtle">本文</dt>
-            <dd className="mt-1 text-ink">IBM Plex Sans JP</dd>
+            <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">本文</dt>
+            <dd className="mt-1">Geist + Noto Sans JP</dd>
           </div>
           <div>
-            <dt className="font-mono uppercase tracking-[0.06em] text-ink-subtle">見出し</dt>
-            <dd className="mt-1 text-ink">Newsreader</dd>
+            <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">品質</dt>
+            <dd className="mt-1">Useful / Intuitive / Delightful / Polished</dd>
           </div>
         </dl>
       </header>
@@ -62,16 +64,18 @@ export function Gallery() {
         id="color"
         eyebrow="Color"
         title="色"
-        why="暖色の紙に墨。アクセントは進行と決定だけ。紫とグラデは 2024–26 の生成 UI 既定なので使わない。"
+        why="reference → semantic → component。部品は semantic だけ。アクセントは primary 1色。紫グラデは置かない。"
       >
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {colorRoles.map((swatch) => (
-            <figure key={swatch.name} className="overflow-hidden rounded-md border border-line bg-surface">
-              <div className="h-16" style={{ background: swatch.hex }} />
+          {tokens.semantic.map((swatch) => (
+            <figure key={swatch.name} className="overflow-hidden rounded-md border border-border bg-card">
+              <div className="grid h-16 grid-cols-2">
+                <div style={{ background: swatch.light }} />
+                <div style={{ background: swatch.dark }} />
+              </div>
               <figcaption className="flex flex-col gap-1 p-3">
-                <span className="font-mono text-[12px] text-ink">{swatch.name}</span>
-                <span className="font-mono text-[11px] text-ink-subtle">{swatch.hex}</span>
-                <span className="text-[13px] text-ink-muted">{swatch.role}</span>
+                <span className="font-mono text-[12px]">{swatch.name}</span>
+                <span className="text-[13px] text-muted-foreground">{swatch.role}</span>
               </figcaption>
             </figure>
           ))}
@@ -82,14 +86,14 @@ export function Gallery() {
         id="type"
         eyebrow="Typography"
         title="書体"
-        why="見出しはセリフ、本文は和文サンセリフ。本文16 / 行間1.75は日本語の可読域。Geist と Inter は既定にしない。"
+        why="Latin は Geist、日本語は Noto Sans JP。本文 16 / 1.75 は日本語の可読域。Inter は既定にしない。"
       >
-        <div className="divide-y divide-line rounded-lg border border-line bg-surface">
+        <div className="divide-y divide-border rounded-lg border border-border bg-card">
           {typeRows.map((row) => (
             <div key={row.name} className="grid gap-3 px-5 py-5 md:grid-cols-[7rem_1fr_8rem]">
-              <p className="font-mono text-[12px] text-ink-subtle">{row.name}</p>
+              <p className="font-mono text-[12px] text-muted-foreground">{row.name}</p>
               <p
-                className={row.name === "display" || row.name === "title" || row.name === "heading" ? "font-display text-ink" : "text-ink"}
+                className="text-foreground"
                 style={{
                   fontSize: row.spec.size,
                   lineHeight: row.spec.line,
@@ -99,7 +103,7 @@ export function Gallery() {
               >
                 {row.sample}
               </p>
-              <p className="font-mono text-[11px] text-ink-subtle">
+              <p className="font-mono text-[11px] text-muted-foreground">
                 {row.spec.size} / {row.spec.line}
               </p>
             </div>
@@ -116,9 +120,9 @@ export function Gallery() {
         <div className="flex flex-col gap-3">
           {Object.entries(tokens.space).map(([key, px]) => (
             <div key={key} className="flex items-center gap-4">
-              <span className="w-10 font-mono text-[12px] text-ink-subtle">{key}</span>
-              <div className="h-3 bg-accent" style={{ width: px }} />
-              <span className="font-mono text-[12px] text-ink-muted">{px}px</span>
+              <span className="w-10 font-mono text-[12px] text-muted-foreground">{key}</span>
+              <div className="h-3 bg-primary" style={{ width: px }} />
+              <span className="font-mono text-[12px] text-muted-foreground">{px}px</span>
             </div>
           ))}
         </div>
@@ -139,12 +143,12 @@ export function Gallery() {
               ["full", tokens.radius.full],
             ] as const
           ).map(([name, value]) => (
-            <div key={name} className="flex flex-col items-center gap-3 rounded-lg border border-line bg-surface p-5">
+            <div key={name} className="flex flex-col items-center gap-3 rounded-lg border border-border bg-card p-5">
               <div
-                className="h-16 w-16 border border-line bg-accent-soft"
+                className="h-16 w-16 border border-border bg-accent"
                 style={{ borderRadius: value === 9999 ? 9999 : value }}
               />
-              <p className="font-mono text-[12px] text-ink">
+              <p className="font-mono text-[12px]">
                 {name} · {value}
               </p>
             </div>
@@ -156,7 +160,7 @@ export function Gallery() {
         id="components"
         eyebrow="Components"
         title="部品"
-        why="shadcn 型。コピーしてトークンを接続する。チャット面が要るときだけ assistant-ui を足す。"
+        why="shadcn 型。コピーしたあと必ずリテーマする。チャット面は assistant-ui primitives。"
       >
         <InteractiveKit />
         <div className="mt-6 flex flex-wrap gap-2">
@@ -167,43 +171,55 @@ export function Gallery() {
       </Section>
 
       <Section
+        id="chat"
+        eyebrow="assistant-ui"
+        title="会話"
+        why="Thread / Composer / Message は assistant-ui。色は AwesomeDS の semantic。API は呼ばないローカルデモ。"
+      >
+        <ChatThread />
+      </Section>
+
+      <Section
         id="motion"
         eyebrow="Motion"
         title="動き"
-        why="120 / 180 / 280ms。意味が変わったときだけ動かす。three.js は空間の説明、Lottie は結果の合図。Reduce Motion では軌道を止める。"
+        why="既定は motion/react と CSS。Lottie は完了の合図。three.js はトークン3色の島。Reduce Motion では軌道を止める。"
       >
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
-            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.06em] text-ink-subtle">
-              three.js · トークン軌道
-            </p>
-            <TokenOrbit />
-            <p className="mt-3 text-[13px] leading-[1.6] text-ink-muted">
-              紙・森・銅。色の役割が3つで足りることを示す。自動で回り、設定で静止する。
-            </p>
-          </div>
-          <div>
-            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.06em] text-ink-subtle">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
               Lottie · 完了
             </p>
             <LottieMark />
-            <p className="mt-3 text-[13px] leading-[1.6] text-ink-muted">
-              保存成功など、値が確定した瞬間に一度だけ再生する。ループしない。
+            <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
+              値が確定した瞬間に一度だけ再生する。ループしない。
+            </p>
+          </div>
+          <div>
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
+              three.js · 島
+            </p>
+            <TokenOrbit />
+            <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
+              紙・森・銅。3色で足りることを示す軽い島。
             </p>
           </div>
         </div>
+        <div className="mt-6">
+          <MotionChip />
+        </div>
         <dl className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-md border border-line bg-surface p-4">
-            <dt className="font-mono text-[11px] text-ink-subtle">fast</dt>
-            <dd className="mt-1 text-ink">{tokens.motion.fast}ms · 色と線</dd>
+          <div className="rounded-md border border-border bg-card p-4">
+            <dt className="font-mono text-[11px] text-muted-foreground">fast</dt>
+            <dd className="mt-1">{tokens.motion.fast}ms · 色と線</dd>
           </div>
-          <div className="rounded-md border border-line bg-surface p-4">
-            <dt className="font-mono text-[11px] text-ink-subtle">base</dt>
-            <dd className="mt-1 text-ink">{tokens.motion.base}ms · ホバーとパネル</dd>
+          <div className="rounded-md border border-border bg-card p-4">
+            <dt className="font-mono text-[11px] text-muted-foreground">base</dt>
+            <dd className="mt-1">{tokens.motion.base}ms · ホバーとパネル</dd>
           </div>
-          <div className="rounded-md border border-line bg-surface p-4">
-            <dt className="font-mono text-[11px] text-ink-subtle">slow</dt>
-            <dd className="mt-1 text-ink">{tokens.motion.slow}ms · 階層の変化</dd>
+          <div className="rounded-md border border-border bg-card p-4">
+            <dt className="font-mono text-[11px] text-muted-foreground">slow</dt>
+            <dd className="mt-1">{tokens.motion.slow}ms · 階層の変化</dd>
           </div>
         </dl>
       </Section>
@@ -212,14 +228,14 @@ export function Gallery() {
         id="principles"
         eyebrow="Principles"
         title="原則"
-        why="好みより、人が迷わず作業を終えられるか。検証はブラウザで行う。"
+        why="Useful / Intuitive / Delightful / Polished。検証はブラウザで行う。"
       >
         <ol className="grid gap-4 md:grid-cols-2">
           {principles.map((item) => (
-            <li key={item.n} className="rounded-lg border border-line bg-surface p-5">
-              <p className="font-mono text-[11px] text-ink-subtle">{item.n}</p>
-              <p className="mt-2 font-display text-[22px] leading-[1.35] text-ink">{item.t}</p>
-              <p className="mt-2 text-[15px] leading-[1.7] text-ink-muted">{item.d}</p>
+            <li key={item.n} className="rounded-lg border border-border bg-card p-5">
+              <p className="font-mono text-[11px] text-muted-foreground">{item.n}</p>
+              <p className="mt-2 text-[22px] leading-[1.4] tracking-[-0.015em]">{item.t}</p>
+              <p className="mt-2 text-[15px] leading-[1.7] text-muted-foreground">{item.d}</p>
             </li>
           ))}
         </ol>
@@ -231,18 +247,18 @@ export function Gallery() {
         title="知見"
         why="ソースを要約して積む。リンクの正本は Reference/LINKS.md。"
       >
-        <ul className="divide-y divide-line rounded-lg border border-line bg-surface">
+        <ul className="divide-y divide-border rounded-lg border border-border bg-card">
           {knowledgeItems.map((item) => (
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="flex flex-col gap-1 px-5 py-4 hover:bg-accent-soft/50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ink"
+                className="flex flex-col gap-1 px-5 py-4 hover:bg-accent/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
               >
                 <span className="flex items-baseline justify-between gap-3">
-                  <span className="text-[15px] text-ink">{item.title}</span>
-                  <span className="font-mono text-[11px] text-ink-subtle">{item.topic}</span>
+                  <span className="text-[15px]">{item.title}</span>
+                  <span className="font-mono text-[11px] text-muted-foreground">{item.topic}</span>
                 </span>
-                <span className="text-[13px] text-ink-muted">{item.summary}</span>
+                <span className="text-[13px] text-muted-foreground">{item.summary}</span>
               </Link>
             </li>
           ))}

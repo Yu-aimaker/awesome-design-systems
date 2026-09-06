@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AwesomeDS preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background: oklch(0.965 0.014 85);
+        --foreground: oklch(0.22 0.012 70);
+        --card: oklch(0.995 0.006 85);
+        --primary: oklch(0.38 0.06 160);
+        --muted: oklch(0.48 0.016 70);
+        --border: oklch(0.88 0.018 85);
+        --destructive: oklch(0.5 0.14 25);
+      }
+      .dark {
+        --background: oklch(0.22 0.012 70);
+        --foreground: oklch(0.965 0.014 85);
+        --card: oklch(0.26 0.014 70);
+        --primary: oklch(0.68 0.07 160);
+        --muted: oklch(0.62 0.016 70);
+        --border: oklch(0.32 0.014 70);
+        --destructive: oklch(0.68 0.12 40);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font: 16px/1.75 Geist, "Noto Sans JP", sans-serif;
+        padding: 48px 24px 96px;
+      }
+      main { max-width: 720px; margin: 0 auto; }
+      h1 { font-size: 32px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; }
+      h2 { font-size: 22px; margin-top: 48px; }
+      p { color: var(--muted); }
+      .row { display: flex; gap: 12px; flex-wrap: wrap; }
+      .swatch { width: 120px; border: 1px solid var(--border); background: var(--card); }
+      .swatch i { display: block; height: 56px; }
+      .swatch b, .swatch span { display: block; padding: 0 8px; font: 11px/1.6 "Geist Mono", monospace; }
+      .swatch span { padding-bottom: 8px; color: var(--muted); }
+      button {
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        padding: 0 16px;
+        font: 500 15px/1 Geist, "Noto Sans JP", sans-serif;
+      }
+      .btn-p { background: var(--primary); color: var(--background); }
+      .btn-s { background: var(--card); color: var(--foreground); border: 1px solid var(--border); }
+      .type { border-top: 1px solid var(--border); padding: 12px 0; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p style="font: 11px/1.4 Geist Mono, monospace; letter-spacing: 0.06em; text-transform: uppercase;">AwesomeDS · preview.html</p>
+      <h1>トークン可視化</h1>
+      <p>DESIGN.md と同じ semantic 面。アプリのショーケースと値を揃える。</p>
+      <p><button type="button" class="btn-s" id="toggle">.dark を切替</button></p>
+
+      <h2>Color</h2>
+      <div class="row">
+        <div class="swatch"><i style="background: var(--background)"></i><b>background</b><span>paper / ink</span></div>
+        <div class="swatch"><i style="background: var(--foreground)"></i><b>foreground</b><span>本文</span></div>
+        <div class="swatch"><i style="background: var(--primary)"></i><b>primary</b><span>決定</span></div>
+        <div class="swatch"><i style="background: var(--border)"></i><b>border</b><span>ヘアライン</span></div>
+        <div class="swatch"><i style="background: var(--destructive)"></i><b>destructive</b><span>破壊</span></div>
+      </div>
+
+      <h2>Type</h2>
+      <div class="type" style="font-size: 32px; line-height: 1.25; letter-spacing: -0.02em;">見出しは順位を先に決める</div>
+      <div class="type">本文は 16 / 1.75。日本語は 35–45 字で折り返す。</div>
+      <div class="type" style="font: 12px/1.4 Geist Mono, monospace; letter-spacing: 0.06em;">TOKEN / LABEL</div>
+
+      <h2>Components</h2>
+      <div class="row">
+        <button type="button" class="btn-p">保存する</button>
+        <button type="button" class="btn-s">戻る</button>
+      </div>
+    </main>
+    <script>
+      document.getElementById("toggle").onclick = () => {
+        document.documentElement.classList.toggle("dark");
+      };
+    </script>
+  </body>
+</html>

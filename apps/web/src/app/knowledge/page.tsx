@@ -67,24 +67,24 @@ export default function KnowledgePage() {
   return (
     <article className="max-w-[40rem]">
       <Badge>Knowledge</Badge>
-      <h1 className="mt-5 font-display text-[48px] leading-[1.15] tracking-[-0.02em]">
+      <h1 className="mt-5 text-[48px] leading-[1.15] font-medium tracking-[-0.03em]">
         知見
       </h1>
-      <p className="mt-5 text-[16px] leading-[1.75] tracking-[0.02em] text-ink-muted">
+      <p className="mt-5 text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
         リポジトリの <code className="font-mono text-[13px] text-ink">Knowledge/</code> と同じ題材。全文は Markdown、ここはショーケース用の要約。
       </p>
       <div className="mt-12 flex flex-col gap-12">
         {articles.map((item) => (
           <section key={item.id} id={item.id} className="scroll-mt-24">
-            <h2 className="font-display text-[32px] leading-[1.25] tracking-[-0.015em]">
+            <h2 className="text-[32px] leading-[1.25] font-medium tracking-[-0.02em]">
               {item.title}
             </h2>
-            <p className="mt-4 text-[16px] leading-[1.75] tracking-[0.02em] text-ink-muted">
+            <p className="mt-4 text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
               {item.body}
             </p>
             <a
               href={item.source}
-              className="mt-3 inline-block font-mono text-[12px] text-copper underline-offset-4 hover:underline"
+              className="mt-3 inline-block font-mono text-[12px] text-destructive underline-offset-4 hover:underline"
               rel="noreferrer"
               target="_blank"
             >

@@ -3,12 +3,12 @@ import type { ButtonHTMLAttributes } from "react";
 
 const variants = {
   primary:
-    "bg-accent text-paper hover:bg-accent-hover disabled:bg-line disabled:text-ink-subtle",
+    "bg-primary text-primary-foreground hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground",
   secondary:
-    "bg-surface text-ink border border-line hover:border-ink/30 disabled:text-ink-subtle",
-  ghost: "bg-transparent text-ink hover:bg-accent-soft disabled:text-ink-subtle",
+    "bg-card text-foreground border border-border hover:bg-secondary disabled:text-muted-foreground",
+  ghost: "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground disabled:text-muted-foreground",
   danger:
-    "bg-danger text-paper hover:bg-danger/90 disabled:bg-line disabled:text-ink-subtle",
+    "bg-destructive text-primary-foreground hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground",
 } as const;
 
 type Variant = keyof typeof variants;
@@ -21,7 +21,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex h-10 items-center justify-center rounded-md px-4 text-[15px] font-medium transition-colors duration-[var(--duration-base)] ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none",
+        "inline-flex h-10 items-center justify-center rounded-md px-4 text-[15px] font-medium transition-colors duration-[var(--duration-base)] ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none",
         variants[variant],
         className,
       )}

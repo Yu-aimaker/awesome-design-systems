@@ -6,10 +6,11 @@
 
 ## 読む順
 
-1. `principles.md` — 判断の軸
-2. `color.md` / `typography.md` / `spacing.md` / `radius.md` / `motion.md`
-3. `components.md` — 部品の振る舞い
-4. `tokens.json` — 実装が読む数値
+1. `DESIGN.md` — Stitch 9節（エージェントの入口）
+2. `AGENTS.md` — 実装手順
+3. `tokens.json` — reference → semantic → component
+4. `principles.md` — 品質4点と思考6軸
+5. `preview.html` — トークンの静的プレビュー
 
 ## 使わないもの
 

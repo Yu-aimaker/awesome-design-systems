@@ -16,7 +16,7 @@ STARKIndustries の正本。AI コーディングエージェントがフロン�
 
 ## エージェントの使い方
 
-1. FE を書く・直す → `Plugin/skills/AwesomeDSSkill/SKILL.md` を読み、`AwesomeDS/` に従う。
+1. FE を書く・直す → `AwesomeDS/DESIGN.md` と `Plugin/skills/AwesomeDSSkill/SKILL.md`。semantic トークンだけ使う。
 2. 製品専用 DS が必要 → `Plugin/skills/DSCreator/SKILL.md`。grilling が終わるまで実装しない。
 3. 出来た画面を疑う → `Plugin/skills/DesignVerifier/SKILL.md`。ブラウザキャプチャ無しは完了にしない。
 4. 誰のための画面か不明 → `Plugin/skills/DesignThinkingSkill/SKILL.md`。

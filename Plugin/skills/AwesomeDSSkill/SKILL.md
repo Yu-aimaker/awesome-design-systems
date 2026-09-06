@@ -5,7 +5,7 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 
 # AwesomeDS を製品に適用する
 
-作業を始める前にリポジトリの `AwesomeDS/` を読む。読む順は `AwesomeDS/README.md`。数値が必要な実装は `AwesomeDS/tokens.json` を写す。
+作業を始める前に `AwesomeDS/DESIGN.md` と `AwesomeDS/AGENTS.md` を読む。数値は `AwesomeDS/tokens.json`（reference → semantic → component）。部品は semantic だけ使う。
 
 ## 手順
 
@@ -17,7 +17,9 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 
 ## 必須
 
-- ページ地は `paper`。本文は `ink`。決定ボタンは `accent`。
+- ページ地は `background`。本文は `foreground`。決定は `primary`。
+- shadcn をコピーしたら必ずリテーマする。zinc / Inter / 大きな丸を残さない。
+- チャット面は assistant-ui primitives。動きの既定は `motion/react`。
 - 1面の primary は1つ。
 - フォーカスリングを消さない。
 - `prefers-reduced-motion` を実装する。

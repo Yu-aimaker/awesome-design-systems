@@ -87,7 +87,7 @@ export function TokenOrbit() {
   return (
     <div
       ref={hostRef}
-      className="h-72 w-full overflow-hidden rounded-lg border border-line bg-ink"
+      className="h-72 w-full overflow-hidden rounded-lg border border-border bg-foreground"
       aria-label="トークン3色の軌道プレビュー"
     />
   );

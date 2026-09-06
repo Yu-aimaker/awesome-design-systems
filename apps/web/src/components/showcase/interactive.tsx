@@ -12,8 +12,8 @@ export function InteractiveKit() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <div className="rounded-lg border border-line bg-surface p-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-ink-subtle">
+      <div className="rounded-lg border border-border bg-card p-6">
+        <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
           Button
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
@@ -31,13 +31,13 @@ export function InteractiveKit() {
             送信不可
           </Button>
         </div>
-        <p className="mt-4 text-[13px] leading-[1.6] text-ink-muted">
+        <p className="mt-4 text-[13px] leading-[1.65] text-muted-foreground">
           1面の primary は1つ。disabled は理由を近くに置く。
         </p>
       </div>
 
-      <div className="rounded-lg border border-line bg-surface p-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-ink-subtle">
+      <div className="rounded-lg border border-border bg-card p-6">
+        <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
           Input / Switch
         </p>
         <form
@@ -47,7 +47,7 @@ export function InteractiveKit() {
             setError(value.trim() ? null : "プロジェクト名を入力してください");
           }}
         >
-          <label className="flex flex-col gap-2 text-[13px] text-ink">
+          <label className="flex flex-col gap-2 text-[13px] text-foreground">
             プロジェクト名
             <Input
               value={value}
@@ -59,7 +59,7 @@ export function InteractiveKit() {
               aria-invalid={Boolean(error)}
             />
           </label>
-          {error ? <p className="text-[13px] text-danger">{error}</p> : null}
+          {error ? <p className="text-[13px] text-destructive">{error}</p> : null}
           <Switch checked={on} onChange={setOn} label="レビュー依頼を送る" />
           <div>
             <Button type="submit">作成する</Button>
