@@ -1,0 +1,26 @@
+export const tokens = {
+  meta: { name: "AwesomeDS", version: "0.3.0" },
+  semantic: [
+    { name: "background", light: "oklch(0.995 0.002 255)", dark: "oklch(0.18 0.02 260)", role: "白地" },
+    { name: "foreground", light: "oklch(0.18 0.02 260)", dark: "oklch(0.98 0.005 255)", role: "濃色本文" },
+    { name: "card", light: "oklch(1 0 0)", dark: "oklch(0.22 0.02 260)", role: "カード" },
+    { name: "primary", light: "oklch(0.42 0.15 255)", dark: "oklch(0.70 0.12 255)", role: "青・決定" },
+    { name: "muted-foreground", light: "oklch(0.46 0.02 260)", dark: "oklch(0.72 0.02 255)", role: "補助文" },
+    { name: "border", light: "oklch(0.90 0.008 255)", dark: "oklch(0.30 0.02 260)", role: "ヘアライン" },
+    { name: "destructive", light: "oklch(0.5 0.14 25)", dark: "oklch(0.68 0.12 40)", role: "破壊・エラー" },
+    { name: "funnel", light: "oklch(0.66 0.18 48)", dark: "oklch(0.74 0.16 50)", role: "任意・1面に1–2" },
+    { name: "popover", light: "oklch(1 0 0)", dark: "oklch(0.22 0.02 260)", role: "一段上の面" },
+  ],
+  font: { sans: "Geist", jp: "Noto Sans JP", mono: "Geist Mono" },
+  type: {
+    display: { size: 48, line: 1.15, weight: 500, tracking: "-0.03em" },
+    title: { size: 32, line: 1.25, weight: 500, tracking: "-0.02em" },
+    heading: { size: 22, line: 1.4, weight: 500, tracking: "-0.015em" },
+    body: { size: 16, line: 1.75, weight: 400, tracking: "0.01em" },
+    small: { size: 13, line: 1.65, weight: 400, tracking: "0.01em" },
+    label: { size: 12, line: 1.4, weight: 500, tracking: "0.06em" },
+  },
+  space: { "1": 4, "2": 8, "3": 12, "4": 16, "5": 24, "6": 32, "7": 48, "8": 64, "9": 96 },
+  radius: { sm: 6, md: 8, lg: 12, full: 9999 },
+  motion: { fast: 120, base: 180, slow: 280 },
+} as const;

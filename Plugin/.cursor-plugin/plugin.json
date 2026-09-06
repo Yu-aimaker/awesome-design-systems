@@ -1,0 +1,13 @@
+{
+  "name": "awesome-ds",
+  "displayName": "AwesomeDS",
+  "version": "0.3.0",
+  "description": "Sir-internal AwesomeDS skills. Not packaged for Cursor Marketplace.",
+  "author": {
+    "name": "STARKIndustries",
+    "email": "yu-aimaker"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "skills": "./skills/"
+}
