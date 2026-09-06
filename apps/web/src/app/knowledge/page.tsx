@@ -71,7 +71,7 @@ export default function KnowledgePage() {
         知見
       </h1>
       <p className="mt-5 text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
-        リポジトリの <code className="font-mono text-[13px] text-ink">Knowledge/</code> と同じ題材。全文は Markdown、ここはショーケース用の要約。
+        リポジトリの <code className="font-mono text-[13px] text-foreground">Knowledge/</code> と同じ題材。全文は Markdown、ここはショーケース用の要約。
       </p>
       <div className="mt-12 flex flex-col gap-12">
         {articles.map((item) => (
