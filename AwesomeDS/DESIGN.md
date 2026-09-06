@@ -24,7 +24,7 @@ Reference（oklch）→ semantic → component。部品は semantic だけ。
 | primary | blue.700 | blue.400 | 決定・進行。1面に1つ |
 | muted-foreground | ink.500 | ink.400 | 補助文 |
 | border | paper.300 | ink.700 | ヘアライン |
-| destructive | rust.700 | rust.400 | 破壊。primary の再利用禁止 |
+| destructive | rust.700 | rust.400 | 破壊・赤。Funnel と混ぜない。primary の再利用禁止 |
 | funnel | funnel.600 | funnel.400 | 任意。1面に最大1–2 |
 | ring | ink.900 | paper.100 | フォーカス |
 

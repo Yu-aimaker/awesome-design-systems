@@ -20,6 +20,13 @@ const typeRows = [
   { name: "label", sample: "TOKEN / LABEL", spec: tokens.type.label },
 ] as const;
 
+const qualities = [
+  { t: "Useful", d: "その画面で作業が終わるか" },
+  { t: "Intuitive", d: "次の手が3秒で見つかるか" },
+  { t: "Delightful", d: "成功の合図が過剰でないか" },
+  { t: "Polished", d: "余白・型・フォーカスが揃っているか" },
+] as const;
+
 const principles = [
   { n: "01", t: "Purpose", d: "この面の目的を1文で書く。書けない画面は作らない。" },
   { n: "02", t: "Agency", d: "Responsibility。止められる（stop）、やり直せる（undo）。失敗しても次の手が残る。" },
@@ -248,9 +255,23 @@ export function Gallery() {
         id="principles"
         eyebrow="Principles"
         title="原則"
-        why="Useful / Intuitive / Delightful / Polished。検証はブラウザで行う。"
+        why="正本は品質4と思考6軸。数を混ぜない。検証はブラウザ。"
       >
-        <ol className="grid gap-4 md:grid-cols-2">
+        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
+          品質 · 4
+        </p>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {qualities.map((item) => (
+            <li key={item.t} className="rounded-lg border border-border bg-card p-4">
+              <p className="text-[16px] font-medium">{item.t}</p>
+              <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground">{item.d}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
+          思考 · 6軸
+        </p>
+        <ol className="mt-4 grid gap-4 md:grid-cols-2">
           {principles.map((item) => (
             <li key={item.n} className="rounded-lg border border-border bg-card p-5">
               <p className="font-mono text-[11px] text-muted-foreground">{item.n}</p>

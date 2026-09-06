@@ -8,7 +8,7 @@ const variants = {
     "bg-card text-foreground border border-border hover:bg-secondary disabled:text-muted-foreground",
   ghost: "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground disabled:text-muted-foreground",
   danger:
-    "bg-destructive text-primary-foreground hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground",
+    "bg-destructive text-destructive-foreground hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground",
 } as const;
 
 type Variant = keyof typeof variants;

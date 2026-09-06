@@ -11,7 +11,7 @@
 | `muted-foreground` | 補助文。本文の代わりにしない |
 | `border` | ヘアライン。影の代わり |
 | `funnel` | Funnel Orange。印・ハイライトだけ |
-| `destructive` | 破壊操作とエラー。primary の再利用禁止 |
+| `destructive` | 破壊操作とエラー。赤。Funnel Orange と混ぜない。primary の再利用禁止 |
 
 ## なぜこの組み合わせか
 
@@ -19,6 +19,7 @@
 - 青は進行と信頼。紫は 2024–26 の AI サイト既定なので使わない。
 - Funnel Orange は報酬や印に残す。画面の第2ブランドにはしない。
 - コントラスト: `foreground` on `background` は本文に十分。`muted-foreground` はキャプション専用。
+- `destructive` は赤（hue 22）。Funnel Orange（hue 48）と並べて誤認しない。
 
 ## 禁止
 
