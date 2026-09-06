@@ -14,7 +14,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-border py-16">
+    <section id={id} className="scroll-mt-28 border-t border-border py-16">
       <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted-foreground">
         {eyebrow}
       </p>

@@ -10,6 +10,7 @@ import {
   type AppendMessage,
   type ThreadMessageLike,
 } from "@assistant-ui/react";
+import { Button } from "@/components/ui/button";
 
 type DemoMessage = { role: "user" | "assistant"; content: string };
 
@@ -42,6 +43,11 @@ function ThreadView() {
   return (
     <ThreadPrimitive.Root className="flex h-[420px] flex-col rounded-lg border border-border bg-card">
       <ThreadPrimitive.Viewport className="flex-1 overflow-y-auto px-4 py-4">
+        <ThreadPrimitive.Empty>
+          <p className="px-2 py-6 text-[15px] leading-[1.7] text-muted-foreground">
+            まだ会話がない。トークン名を入れて送る。
+          </p>
+        </ThreadPrimitive.Empty>
         <ThreadPrimitive.Messages
           components={{
             UserMessage: () => (
@@ -60,9 +66,9 @@ function ThreadView() {
       <ComposerPrimitive.Root className="flex gap-2 border-t border-border p-3">
         <ComposerPrimitive.Input
           placeholder="トークンについて聞く"
-          className="h-10 flex-1 rounded-md border border-input bg-background px-3 text-[14px] text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring"
+          className="h-10 flex-1 rounded-md border border-input bg-background px-3 text-[14px] text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         />
-        <ComposerPrimitive.Send className="inline-flex h-10 items-center rounded-md bg-primary px-3 text-[14px] text-primary-foreground">
+        <ComposerPrimitive.Send className="inline-flex h-10 items-center rounded-md bg-primary px-3 text-[14px] text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
           送る
         </ComposerPrimitive.Send>
       </ComposerPrimitive.Root>
@@ -91,8 +97,31 @@ export function ChatThread() {
   });
 
   return (
-    <AssistantRuntimeProvider runtime={runtime}>
-      <ThreadView />
-    </AssistantRuntimeProvider>
+    <div>
+      <AssistantRuntimeProvider runtime={runtime}>
+        <ThreadView />
+      </AssistantRuntimeProvider>
+      <div className="mt-3 flex flex-wrap gap-3">
+        <Button
+          type="button"
+          variant="ghost"
+          onClick={() => {
+            setMessages((prev) => {
+              if (prev.length < 2) return [];
+              return prev.slice(0, -2);
+            });
+          }}
+          disabled={messages.length === 0 || isRunning}
+        >
+          直前を戻す
+        </Button>
+        <Button type="button" variant="secondary" onClick={() => setMessages([])} disabled={messages.length === 0}>
+          履歴を消す
+        </Button>
+      </div>
+      <p className="mt-2 text-[13px] leading-[1.65] text-muted-foreground" aria-live="polite">
+        {isRunning ? "返信を組み立てている。" : messages.length === 0 ? "空。Composer が次の手。" : null}
+      </p>
+    </div>
   );
 }

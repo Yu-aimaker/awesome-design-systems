@@ -38,7 +38,25 @@ Vercel に出すときは Root Directory を `apps/web` にする。`apps/web/ve
 
 ## Phase1 done（STA-11）
 
-骨格（Knowledge / Reference / AwesomeDS / Plugin / apps/web）と、トークンが体感できるショーケース MVP。フルアニメと部品庫の網羅は Phase2。
+骨格（Knowledge / Reference / AwesomeDS / Plugin / apps/web）と、トークンが体感できるショーケース MVP。
+
+## Phase2 Verifier ルート
+
+`cd apps/web && pnpm dev` のあと、実ブラウザで次を回す。1枚の見た目確認で終わらない。
+
+| ルート | 見るもの |
+| --- | --- |
+| `/` | ヒーロー、色・書体・余白。白地 + 濃色 + 青 |
+| `/#components` | 部品。空送信エラー、削除の stop / undo |
+| `/#states` | 空 / 読込 / 失敗。再試行がある |
+| `/#chat` | 会話。履歴を消すと空状態。直前を戻す |
+| `/#motion` | Lottie は再生/停止。three.js は止まった島、任意で回す。Funnel はバッジと色見本だけ |
+| `/#thinking` | ペルソナ2、ジャーニー6手、成功/失敗/中断 |
+| `/knowledge` | 知見。ソースリンクは primary |
+| `/knowledge` で存在しない語 | 空状態。「条件を消す」 |
+| `/does-not-exist` | 404。先頭へ戻れる |
+
+幅 390 とデスクトップ、Tab 往復、OS の Reduce Motion を必須。
 
 ## 更新ルール
 

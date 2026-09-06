@@ -9,12 +9,14 @@ export function InteractiveKit() {
   const [on, setOn] = useState(true);
   const [value, setValue] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [confirm, setConfirm] = useState(false);
+  const [deleted, setDeleted] = useState(false);
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="rounded-lg border border-border bg-card p-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
-          Button
+          Button · Responsibility
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Button type="button">保存する</Button>
@@ -24,9 +26,6 @@ export function InteractiveKit() {
           <Button type="button" variant="ghost">
             詳細
           </Button>
-          <Button type="button" variant="danger">
-            削除
-          </Button>
           <Button type="button" disabled>
             送信不可
           </Button>
@@ -34,6 +33,40 @@ export function InteractiveKit() {
         <p className="mt-4 text-[13px] leading-[1.65] text-muted-foreground">
           1面の primary は1つ。disabled は理由を近くに置く。
         </p>
+
+        <div className="mt-6 border-t border-border pt-6">
+          {deleted ? (
+            <div className="flex flex-col items-start gap-3">
+              <p className="text-[15px]">削除した。次の手は取り消し。</p>
+              <Button type="button" variant="secondary" onClick={() => setDeleted(false)}>
+                元に戻す
+              </Button>
+            </div>
+          ) : confirm ? (
+            <div className="flex flex-col items-start gap-3">
+              <p className="text-[15px]">プロジェクトを消す。やめられる。</p>
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  type="button"
+                  variant="danger"
+                  onClick={() => {
+                    setDeleted(true);
+                    setConfirm(false);
+                  }}
+                >
+                  消す
+                </Button>
+                <Button type="button" variant="secondary" onClick={() => setConfirm(false)}>
+                  やめる
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <Button type="button" variant="danger" onClick={() => setConfirm(true)}>
+              削除
+            </Button>
+          )}
+        </div>
       </div>
 
       <div className="rounded-lg border border-border bg-card p-6">
@@ -57,9 +90,14 @@ export function InteractiveKit() {
               }}
               placeholder="例: checkout-web"
               aria-invalid={Boolean(error)}
+              aria-describedby={error ? "project-name-error" : undefined}
             />
           </label>
-          {error ? <p className="text-[13px] text-destructive">{error}</p> : null}
+          {error ? (
+            <p id="project-name-error" className="text-[13px] text-destructive">
+              {error}
+            </p>
+          ) : null}
           <Switch checked={on} onChange={setOn} label="レビュー依頼を送る" />
           <div>
             <Button type="submit">作成する</Button>
