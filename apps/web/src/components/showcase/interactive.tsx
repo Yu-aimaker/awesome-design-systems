@@ -14,7 +14,7 @@ export function InteractiveKit() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <div className="rounded-lg border border-border bg-card p-6">
+      <div className="rounded-lg border border-border bg-card p-4 sm:p-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
           Button · Responsibility
         </p>
@@ -69,7 +69,7 @@ export function InteractiveKit() {
         </div>
       </div>
 
-      <div className="rounded-lg border border-border bg-card p-6">
+      <div className="rounded-lg border border-border bg-card p-4 sm:p-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted-foreground">
           Input / Switch
         </p>

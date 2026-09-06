@@ -32,9 +32,9 @@ const principles = [
 export function Gallery() {
   return (
     <div>
-      <header className="pb-12">
+      <header className="pb-10 sm:pb-12">
         <Badge>Canon 0.3.0</Badge>
-        <h1 className="mt-5 max-w-[18ch] text-[48px] leading-[1.15] font-medium tracking-[-0.03em] text-foreground">
+        <h1 className="mt-5 max-w-[18ch] text-[36px] leading-[1.15] font-medium tracking-[-0.03em] text-foreground sm:text-[48px]">
           AwesomeDS
         </h1>
         <p className="mt-5 max-w-[40rem] text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
@@ -45,22 +45,22 @@ export function Gallery() {
         <p className="mt-2 max-w-[40rem] text-[13px] leading-[1.65] text-muted-foreground">
           JA first。英語はラベルだけ。
         </p>
-        <dl className="mt-8 grid grid-cols-2 gap-4 text-[13px] sm:grid-cols-4">
-          <div>
+        <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 text-[13px] sm:grid-cols-4">
+          <div className="min-w-0">
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">地</dt>
             <dd className="mt-1">白地 / 濃色 · .dark</dd>
           </div>
-          <div>
+          <div className="min-w-0">
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">決定色</dt>
             <dd className="mt-1">primary · blue</dd>
           </div>
-          <div>
+          <div className="min-w-0">
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">本文</dt>
             <dd className="mt-1">Geist + Noto Sans JP</dd>
           </div>
-          <div>
+          <div className="min-w-0">
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">品質</dt>
-            <dd className="mt-1">Useful / Intuitive / Delightful / Polished</dd>
+            <dd className="mt-1 break-words">Useful / Intuitive / Delightful / Polished</dd>
           </div>
         </dl>
       </header>
@@ -69,11 +69,11 @@ export function Gallery() {
         id="color"
         eyebrow="Color"
         title="色"
-        why="reference → semantic → component。部品は semantic だけ。決定は青1色。Funnel Orange は任意で1–2。紫グラデは置かない。"
+        why="reference → semantic → component。部品は semantic だけ。決定は青1色。紫グラデは置かない。"
       >
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {tokens.semantic.map((swatch) => (
-            <figure key={swatch.name} className="overflow-hidden rounded-md border border-border bg-card">
+            <figure key={swatch.name} className="min-w-0 overflow-hidden rounded-md border border-border bg-card">
               <div className="grid h-16 grid-cols-2">
                 <div style={{ background: swatch.light }} />
                 <div style={{ background: swatch.dark }} />
@@ -95,10 +95,10 @@ export function Gallery() {
       >
         <div className="divide-y divide-border rounded-lg border border-border bg-card">
           {typeRows.map((row) => (
-            <div key={row.name} className="grid gap-3 px-5 py-5 md:grid-cols-[7rem_1fr_8rem]">
+            <div key={row.name} className="grid min-w-0 gap-3 px-4 py-5 sm:px-5 md:grid-cols-[7rem_1fr_8rem]">
               <p className="font-mono text-[12px] text-muted-foreground">{row.name}</p>
               <p
-                className="text-foreground"
+                className="min-w-0 text-foreground"
                 style={{
                   fontSize: row.spec.size,
                   lineHeight: row.spec.line,
@@ -124,10 +124,10 @@ export function Gallery() {
       >
         <div className="flex flex-col gap-3">
           {Object.entries(tokens.space).map(([key, px]) => (
-            <div key={key} className="flex items-center gap-4">
-              <span className="w-10 font-mono text-[12px] text-muted-foreground">{key}</span>
-              <div className="h-3 bg-primary" style={{ width: px }} />
-              <span className="font-mono text-[12px] text-muted-foreground">{px}px</span>
+            <div key={key} className="flex min-w-0 items-center gap-3 sm:gap-4">
+              <span className="w-8 shrink-0 font-mono text-[12px] text-muted-foreground sm:w-10">{key}</span>
+              <div className="h-3 max-w-full shrink bg-primary" style={{ width: px }} />
+              <span className="shrink-0 font-mono text-[12px] text-muted-foreground">{px}px</span>
             </div>
           ))}
         </div>
@@ -171,7 +171,6 @@ export function Gallery() {
         <div className="mt-6 flex flex-wrap gap-2">
           <Badge>line</Badge>
           <Badge tone="accent">選択中</Badge>
-          <Badge tone="funnel">Funnel</Badge>
         </div>
       </Section>
 
@@ -212,7 +211,7 @@ export function Gallery() {
             </p>
             <TokenOrbit />
             <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
-              白・墨・青。Funnel は色見本と Funnel バッジだけ。
+              白・墨・青の島。自動では回さない。
             </p>
           </div>
         </div>
@@ -274,9 +273,9 @@ export function Gallery() {
                 href={item.href}
                 className="flex min-h-10 flex-col gap-1 px-5 py-4 hover:bg-accent/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring"
               >
-                <span className="flex items-baseline justify-between gap-3">
-                  <span className="text-[15px]">{item.title}</span>
-                  <span className="font-mono text-[11px] text-muted-foreground">{item.topic}</span>
+                <span className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                  <span className="min-w-0 text-[15px]">{item.title}</span>
+                  <span className="shrink-0 font-mono text-[11px] text-muted-foreground">{item.topic}</span>
                 </span>
                 <span className="text-[13px] text-muted-foreground">{item.summary}</span>
               </Link>
