@@ -63,7 +63,7 @@ export function Shell({ children }: { children: ReactNode }) {
   const active = useActiveId();
 
   return (
-    <div className="min-h-full bg-background text-foreground">
+    <div className="min-h-full overflow-x-clip bg-background text-foreground">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-[14px] focus:text-primary-foreground"
@@ -108,39 +108,43 @@ export function Shell({ children }: { children: ReactNode }) {
         </aside>
 
         <div className="min-w-0 flex-1">
-          <header className="flex items-center justify-between border-b border-border px-5 py-3 lg:hidden">
-            <Link
-              href="/"
-              className="text-[18px] font-medium tracking-[-0.03em] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            >
-              AwesomeDS
-            </Link>
-            <button
-              type="button"
-              onClick={toggle}
-              className="inline-flex h-10 min-w-10 items-center justify-center px-3 text-[13px] text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            >
-              {theme === "dark" ? "ライト" : "ダーク"}
-            </button>
-          </header>
-          <nav
-            className="flex gap-4 overflow-x-auto border-b border-border px-5 py-2 text-[13px] text-muted-foreground lg:hidden"
-            aria-label="セクション"
-          >
-            {nav.map((item) => (
+          <div className="sticky top-0 z-20 border-b border-border bg-background lg:hidden">
+            <header className="flex items-center justify-between px-4 py-3 sm:px-5">
               <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active === item.id ? "page" : undefined}
-                className={`inline-flex h-10 shrink-0 items-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
-                  active === item.id ? "text-foreground" : "hover:text-foreground"
-                }`}
+                href="/"
+                className="text-[18px] font-medium tracking-[-0.03em] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
-                {item.label}
+                AwesomeDS
               </Link>
-            ))}
-          </nav>
-          <main id="main" className="px-5 py-10 sm:px-8 lg:px-14 lg:py-14">
+              <button
+                type="button"
+                onClick={toggle}
+                className="inline-flex h-10 min-w-10 items-center justify-center rounded-md px-3 text-[13px] text-muted-foreground hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                {theme === "dark" ? "ライト" : "ダーク"}
+              </button>
+            </header>
+            <nav
+              className="flex gap-1 overflow-x-auto px-3 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              aria-label="セクション"
+            >
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active === item.id ? "page" : undefined}
+                  className={`inline-flex h-10 shrink-0 items-center rounded-md px-3 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                    active === item.id
+                      ? "bg-accent text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+          <main id="main" className="px-4 py-8 sm:px-8 sm:py-10 lg:px-14 lg:py-14">
             {children}
           </main>
         </div>

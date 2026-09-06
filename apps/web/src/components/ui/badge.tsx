@@ -5,14 +5,13 @@ export function Badge({
   className,
   tone = "line",
   ...props
-}: HTMLAttributes<HTMLSpanElement> & { tone?: "line" | "accent" | "funnel" }) {
+}: HTMLAttributes<HTMLSpanElement> & { tone?: "line" | "accent" }) {
   return (
     <span
       className={cn(
         "inline-flex items-center rounded-sm px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.06em]",
         tone === "line" && "border border-border text-muted-foreground",
         tone === "accent" && "bg-accent text-accent-foreground",
-        tone === "funnel" && "bg-funnel text-funnel-foreground",
         className,
       )}
       {...props}

@@ -15,7 +15,7 @@ export function StatusPanel() {
   const [status, setStatus] = useState<Status>("empty");
 
   return (
-    <div className="rounded-lg border border-border bg-card p-6">
+    <div className="rounded-lg border border-border bg-card p-4 sm:p-6">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="状態">
         {tabs.map((tab) => (
           <button
