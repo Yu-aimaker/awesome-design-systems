@@ -28,7 +28,6 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 ## 禁止
 
 - 紫グラデ、ガラス、全面丸、空中に浮いたヒーローコピー。
-- Funnel Orange を3つ以上、または CTA 全面に使うこと。
 - 説明のない Lottie / 3D。
 - 「モダンで洗練された」をデザイン判断の根拠にすること。
 
@@ -42,7 +41,6 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 
 - 目的が1文で書ける
 - 部品は semantic のみ。Hex を JSX に書いていない
-- 1面の primary は1つ。Funnel は 0–2
 - フォーカスリングが見える
 - `prefers-reduced-motion` でループと大きな移動が止まる
 - 破壊操作に stop と undo がある

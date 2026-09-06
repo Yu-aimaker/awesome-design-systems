@@ -1,65 +1,61 @@
-# Awesome Design Systems
+# AwesomeDS
 
-STARKIndustries の正本。AI コーディングエージェントがフロントを作るときのルール、知見、検証手順、およびそのルール自身で組んだショーケース。
+A living design-system canon, internal Plugin skills, Knowledge references, and a documentation app that uses the same tokens it demonstrates.
 
-ブランドがまだ無いプロダクトは `AwesomeDS/` を直接使う。ブランドがある場合は `Plugin/skills/DSCreator` で派生を切る。
+- `AwesomeDS/`: design rules, semantic tokens, foundations, and a standalone `preview.html`.
+- `Knowledge/`: design reasoning and reference notes for typography, color, interaction, and component systems.
+- `Plugin/skills/`: internal agent workflows for thinking, applying, creating, and verifying a design system. Future open-source distribution is planned.
+- `apps/web/`: Next.js App Router documentation and interactive component gallery.
 
-## 構成
+## Run the documentation
 
-| パス | 役割 |
-| --- | --- |
-| `AwesomeDS/` | 正本。トークン、書体、色、余白、角、動き、部品、原則 |
-| `Plugin/` | Cursor / Claude 用 Skill 4本 |
-| `Knowledge/` | 題材別の要約。ソースリンク付き |
-| `Reference/LINKS.md` | 外部リンクの一覧 |
-| `apps/web/` | Next.js ショーケース。サイト自身が AwesomeDS を使う |
-
-## エージェントの使い方
-
-1. FE を書く・直す → `AwesomeDS/DESIGN.md` と `Plugin/skills/AwesomeDSSkill/SKILL.md`。semantic トークンだけ使う。
-2. 製品専用 DS が必要 → `Plugin/skills/DSCreator/SKILL.md`。grilling が終わるまで実装しない。
-3. 出来た画面を疑う → `Plugin/skills/DesignVerifier/SKILL.md`。ブラウザキャプチャ無しは完了にしない。
-4. 誰のための画面か不明 → `Plugin/skills/DesignThinkingSkill/SKILL.md`。
-5. 判断の根拠が要る → `Knowledge/` を読み、新しいソースは `Reference/LINKS.md` に足してから要約する。
-
-同時に4 Skill を全部読まない。作業種で1本選ぶ。
-
-プラグインは Sir 内部 / 私用。Marketplace へ出さない。入れ方は `Plugin/README.md`。
-
-## ショーケース
-
-```bash
+```sh
 cd apps/web
 pnpm install
 pnpm dev
 ```
 
-Vercel に出すときは Root Directory を `apps/web` にする。`apps/web/vercel.json` の framework は nextjs。
+## Routes
 
-## Phase1 done（STA-11）
-
-骨格（Knowledge / Reference / AwesomeDS / Plugin / apps/web）と、トークンが体感できるショーケース MVP。
-
-## Phase2 Verifier ルート
-
-`cd apps/web && pnpm dev` のあと、実ブラウザで次を回す。1枚の見た目確認で終わらない。
-
-| ルート | 見るもの |
+| Route | Purpose |
 | --- | --- |
-| `/` | ヒーロー、色・書体・余白。白地 + 濃色 + 青 |
-| `/#components` | 部品。空送信エラー、削除の stop / undo |
-| `/#states` | 空 / 読込 / 失敗。再試行がある |
-| `/#chat` | 会話。履歴を消すと空状態。直前を戻す |
-| `/#motion` | Lottie は再生/停止。three.js は止まった島、任意で回す。Funnel はバッジと色見本だけ |
-| `/#thinking` | ペルソナ2、ジャーニー6手、成功/失敗/中断 |
-| `/knowledge` | 知見。ソースリンクは primary |
-| `/knowledge` で存在しない語 | 空状態。「条件を消す」 |
-| `/does-not-exist` | 404。先頭へ戻れる |
+| `/` | Redirects to `/docs` |
+| `/docs` | Introduction and canon workflow |
+| `/docs/principles` | Purpose, control, feedback, and craft |
+| `/docs/tokens` | Reference → semantic → component |
+| `/docs/color` | White, dark, and blue semantic roles |
+| `/docs/typography` | Geist, Noto Sans JP, and Geist Mono |
+| `/docs/spacing` | Spacing scale and radius rules |
+| `/docs/motion` | STA-19 C hybrid motion strategy |
+| `/docs/plugin` | Use the internal Plugin skills |
+| `/docs/knowledge` | Design references and source notes |
+| `/gallery` | Component preview directory |
+| `/gallery/buttons` | Action priority, save, and undo |
+| `/gallery/forms` | Validation, simulated failure, and retry |
+| `/gallery/chat` | assistant-ui thread and composer; local replies |
+| `/gallery/color` | Copy semantic variables and compare themes |
+| `/gallery/typography` | Latin and Japanese type specimens |
+| `/gallery/spacing` | Interactive spacing scale |
+| `/gallery/motion` | CSS tokens, Motion layout, and Lottie completion |
+| `/sources/...` | Generated copies of canon, Knowledge, and Plugin source files |
 
-幅 390 とデスクトップ、Tab 往復、OS の Reduce Motion を必須。
+Docs and gallery use a shared sidebar, a modal mobile drawer, visible focus, and a persistent light/dark theme. Every detail surface includes a short rationale, an interactive preview, and source links.
 
-## 更新ルール
+## Change the canon
 
-- トークンを変えたら `AwesomeDS/tokens.json` と `apps/web/src/lib/tokens.ts` を同じにする。
-- 外部ソースを足したら Knowledge の MD と `Reference/LINKS.md` の両方を更新する。
-- 使わないドキュメントを増やさない。
+Edit `AwesomeDS/tokens.json`, update the relevant foundation document, then run:
+
+```sh
+cd apps/web
+pnpm sync:canon
+pnpm lint
+pnpm build
+```
+
+`sync:canon` resolves token references into the generated section of `src/app/globals.css`, generates `AwesomeDS/preview.html`, and copies source documents to `public/sources`. It runs before development and production builds. The token gallery imports the canon directly. Generated source copies are ignored by Git.
+
+STA-19 C: simple motion uses owned duration/easing tokens in CSS. Complex layout uses `motion/react`; completion illustration uses lazy-loaded `lottie-react`. All motion previews start still, expose controls, and honor reduced motion. `three` remains an optional installed dependency for a future spatial demonstration with a concrete purpose.
+
+All form and chat examples run locally. No model API, database, or external account is required.
+
+Build tooling uses Webpack with the TypeScript compiler API and an in-process build worker. This supports constrained environments where Turbopack’s CSS worker cannot open a local port. Geist font assets are self-hosted; Noto Sans JP loads at runtime with local fallbacks. See `apps/web/src/fonts/README.md`.
