@@ -15,7 +15,7 @@
 - shadcn をコピーしたら、必ず AwesomeDS でリテーマする。既定の zinc / Inter / 大きな丸を残さない。
 - チャット面は `@assistant-ui/react` の primitives。独自スレッドを再発明しない。
 - 動きの既定は `motion/react`。Lottie は結果の合図。three.js は軽い島だけ。
-- アイコンは Phosphor。
+- アイコンは Phosphor。shadcn CLI の既定 lucide はコピー後に差し替える。
 
 ## 検証
 

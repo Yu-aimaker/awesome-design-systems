@@ -17,8 +17,8 @@
 
 ## 推奨ライブラリ
 
-- UI 遷移: CSS。追加ライブラリ不要。
-- 複雑なタイムライン: Motion（旧 Framer Motion）は必要な画面だけ。
+- UI 遷移の既定: `motion/react` + CSS。
+- GSAP はヒーローなど大きなタイムラインだけ。lazy import。Phase 1 では入れない。
 - イラストの再生: `lottie-react`（このショーケースが使用）。
 - 空間・データ: `three` を直接。`@react-three/fiber` は必須になるまで入れない。
 

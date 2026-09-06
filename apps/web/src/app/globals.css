@@ -17,6 +17,8 @@
   --border: oklch(0.88 0.018 85);
   --input: oklch(0.88 0.018 85);
   --ring: oklch(0.22 0.012 70);
+  --popover: oklch(0.995 0.006 85);
+  --popover-foreground: oklch(0.22 0.012 70);
   --radius: 0.5rem;
   --duration-fast: 120ms;
   --duration-base: 180ms;
@@ -40,6 +42,8 @@
   --border: oklch(0.32 0.014 70);
   --input: oklch(0.32 0.014 70);
   --ring: oklch(0.965 0.014 85);
+  --popover: oklch(0.26 0.014 70);
+  --popover-foreground: oklch(0.965 0.014 85);
 }
 
 @theme inline {
@@ -59,6 +63,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --font-sans: var(--font-geist), var(--font-noto), sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --radius-sm: 6px;
@@ -87,7 +93,23 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  font-feature-settings: "palt" 1;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+p,
+li,
+dd,
+label {
+  font-feature-settings: "palt" 1, "kern" 1;
+}
+
+h1,
+h2,
+h3 {
+  font-feature-settings: "kern" 1, "palt" 0;
+  line-break: strict;
 }
 
 ::selection {

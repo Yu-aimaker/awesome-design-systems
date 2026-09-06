@@ -40,6 +40,9 @@ export function Gallery() {
           <code className="mx-1 font-mono text-[13px] text-foreground">AwesomeDS/tokens.json</code>
           の semantic 層と同じ。ブランドが無いときはこれを直接使う。
         </p>
+        <p className="mt-2 max-w-[40rem] text-[13px] leading-[1.65] text-muted-foreground">
+          Living canon for agents. Japanese first, English labels beside the work.
+        </p>
         <dl className="mt-8 grid grid-cols-2 gap-4 text-[13px] sm:grid-cols-4">
           <div>
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">地</dt>

@@ -8,7 +8,7 @@ Stitch 9節。エージェントはこれを先に読む。数値の正本は `t
 
 品質の4点: Useful / Intuitive / Delightful / Polished。思考の6軸: Purpose / Agency / Simplicity / Craft / Delight / Long-view。
 
-JA first。本文行間 1.75、行長 35–45 字、禁則を切らない。`palt` は本文のみ。見出しはカーニング優先。
+JA first、英語ラベルは短く併記。本文行間 1.75、行長 35–45 字。CSS は `line-break: strict`（禁則）。`palt` は本文のみ。見出しは `kern`、`palt` を切る。
 
 ## 2. Color Palette & Roles
 

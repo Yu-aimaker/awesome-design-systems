@@ -9,7 +9,7 @@
 - 深さ: レイヤーは「今どこにいるか」を示すために使う。影の重ねすぎは禁止。
 - タッチターゲット 44pt 以上。フォーカスリングを消さない。
 - Dynamic Type / Reduce Motion / Contrast を設定として扱う。CSS 変数で追従する。
-- SF は Apple 製品向け。Web ではライセンスのある代替（この正本では IBM Plex / Newsreader）を使う。
+- SF は Apple 製品向け。Web では Geist + Noto Sans JP を使う。
 
 ## AwesomeDS への取り込み
 
