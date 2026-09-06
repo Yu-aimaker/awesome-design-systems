@@ -1,0 +1,7 @@
+Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font.git)
+
+
+Files: debian/*
+Copyright: 2013, Vasudev Kamath <kamathvasudev@gmail.com>
+2013-2015, Jonas Smedegaard <dr@jones.dk>
+2015-2022, ChangZhuo Chen (陳昌倬) <czchen@debian.org>
