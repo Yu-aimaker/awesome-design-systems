@@ -18,7 +18,7 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 ## 必須
 
 - ページ地は `background`。本文は `foreground`。決定は `primary`。
-- shadcn をコピーしたら必ずリテーマする。zinc / Inter / 大きな丸を残さない。
+- shadcn をコピーしたら必ずリテーマする。zinc / Inter / 大きな丸を残さない。Phase1 は shadcn 既定。Base UI へ切り替えない。
 - チャット面は assistant-ui primitives。動きの既定は `motion/react`。
 - 1面の primary は1つ。
 - フォーカスリングを消さない。
@@ -28,7 +28,7 @@ description: Apply AwesomeDS tokens, type, space, motion, and component rules to
 ## 禁止
 
 - 紫グラデ、ガラス、全面丸、空中に浮いたヒーローコピー。
-- 3つ目のアクセント色。
+- Funnel Orange を3つ以上、または CTA 全面に使うこと。
 - 説明のない Lottie / 3D。
 - 「モダンで洗練された」をデザイン判断の根拠にすること。
 

@@ -12,22 +12,24 @@
     />
     <style>
       :root {
-        --background: oklch(0.965 0.014 85);
-        --foreground: oklch(0.22 0.012 70);
-        --card: oklch(0.995 0.006 85);
-        --primary: oklch(0.38 0.06 160);
-        --muted: oklch(0.48 0.016 70);
-        --border: oklch(0.88 0.018 85);
+        --background: oklch(0.995 0.002 255);
+        --foreground: oklch(0.18 0.02 260);
+        --card: oklch(1 0 0);
+        --primary: oklch(0.42 0.15 255);
+        --muted: oklch(0.46 0.02 260);
+        --border: oklch(0.9 0.008 255);
         --destructive: oklch(0.5 0.14 25);
+        --funnel: oklch(0.66 0.18 48);
       }
       .dark {
-        --background: oklch(0.22 0.012 70);
-        --foreground: oklch(0.965 0.014 85);
-        --card: oklch(0.26 0.014 70);
-        --primary: oklch(0.68 0.07 160);
-        --muted: oklch(0.62 0.016 70);
-        --border: oklch(0.32 0.014 70);
+        --background: oklch(0.18 0.02 260);
+        --foreground: oklch(0.98 0.005 255);
+        --card: oklch(0.22 0.02 260);
+        --primary: oklch(0.7 0.12 255);
+        --muted: oklch(0.72 0.02 255);
+        --border: oklch(0.3 0.02 260);
         --destructive: oklch(0.68 0.12 40);
+        --funnel: oklch(0.74 0.16 50);
       }
       * { box-sizing: border-box; }
       body {
@@ -62,14 +64,15 @@
     <main>
       <p style="font: 11px/1.4 Geist Mono, monospace; letter-spacing: 0.06em; text-transform: uppercase;">AwesomeDS · preview.html</p>
       <h1>トークン可視化</h1>
-      <p>DESIGN.md と同じ semantic 面。アプリのショーケースと値を揃える。</p>
+      <p>DESIGN.md と同じ semantic 面。アプリのショーケースと値を揃える。白地・濃色・青。Funnel は任意1色。</p>
       <p><button type="button" class="btn-s" id="toggle">.dark を切替</button></p>
 
       <h2>Color</h2>
       <div class="row">
-        <div class="swatch"><i style="background: var(--background)"></i><b>background</b><span>paper / ink</span></div>
+        <div class="swatch"><i style="background: var(--background)"></i><b>background</b><span>白地</span></div>
         <div class="swatch"><i style="background: var(--foreground)"></i><b>foreground</b><span>本文</span></div>
-        <div class="swatch"><i style="background: var(--primary)"></i><b>primary</b><span>決定</span></div>
+        <div class="swatch"><i style="background: var(--primary)"></i><b>primary</b><span>青・決定</span></div>
+        <div class="swatch"><i style="background: var(--funnel)"></i><b>funnel</b><span>任意 1–2</span></div>
         <div class="swatch"><i style="background: var(--border)"></i><b>border</b><span>ヘアライン</span></div>
         <div class="swatch"><i style="background: var(--destructive)"></i><b>destructive</b><span>破壊</span></div>
       </div>

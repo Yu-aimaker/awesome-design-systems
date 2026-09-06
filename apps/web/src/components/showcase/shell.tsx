@@ -36,7 +36,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <Link href="/" className="text-[20px] font-medium leading-none tracking-[-0.03em]">
             AwesomeDS
           </Link>
-          <p className="mt-2 font-mono text-[11px] text-muted-foreground">Canon · 0.2.0</p>
+          <p className="mt-2 font-mono text-[11px] text-muted-foreground">Canon · 0.3.0</p>
           <nav className="mt-10 flex flex-col gap-1" aria-label="ページ内">
             {nav.map((item) => (
               <Link

@@ -24,7 +24,7 @@ STARKIndustries の正本。AI コーディングエージェントがフロン�
 
 同時に4 Skill を全部読まない。作業種で1本選ぶ。
 
-プラグインの入れ方は `Plugin/README.md`。
+プラグインは Sir 内部 / 私用。Marketplace へ出さない。入れ方は `Plugin/README.md`。
 
 ## ショーケース
 
@@ -35,6 +35,10 @@ pnpm dev
 ```
 
 Vercel の Root Directory は `apps/web`。設定は `apps/web/vercel.json`。
+
+## Phase1 done（STA-11）
+
+骨格（Knowledge / Reference / AwesomeDS / Plugin / apps/web）と、トークンが体感できるショーケース MVP。フルアニメと部品庫の網羅は Phase2。
 
 ## 更新ルール
 

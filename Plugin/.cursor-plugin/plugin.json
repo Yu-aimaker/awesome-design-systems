@@ -1,25 +1,13 @@
 {
   "name": "awesome-ds",
   "displayName": "AwesomeDS",
-  "version": "0.1.0",
-  "description": "Apply, generate, and verify product UI against the AwesomeDS canon.",
+  "version": "0.3.0",
+  "description": "Sir-internal AwesomeDS skills. Not packaged for Cursor Marketplace.",
   "author": {
     "name": "STARKIndustries",
     "email": "yu-aimaker"
   },
-  "homepage": "https://github.com/Yu-aimaker/awesome-design-systems",
-  "repository": "https://github.com/Yu-aimaker/awesome-design-systems",
-  "license": "MIT",
-  "keywords": [
-    "design-system",
-    "frontend",
-    "design-thinking"
-  ],
-  "category": "developer-tools",
-  "tags": [
-    "design",
-    "ui",
-    "verification"
-  ],
+  "license": "UNLICENSED",
+  "private": true,
   "skills": "./skills/"
 }

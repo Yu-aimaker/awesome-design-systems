@@ -31,7 +31,7 @@ export function Gallery() {
   return (
     <div>
       <header className="pb-12">
-        <Badge>Canon 0.2.0</Badge>
+        <Badge>Canon 0.3.0</Badge>
         <h1 className="mt-5 max-w-[18ch] text-[48px] leading-[1.15] font-medium tracking-[-0.03em] text-foreground">
           AwesomeDS
         </h1>
@@ -46,11 +46,11 @@ export function Gallery() {
         <dl className="mt-8 grid grid-cols-2 gap-4 text-[13px] sm:grid-cols-4">
           <div>
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">地</dt>
-            <dd className="mt-1">paper / ink · .dark</dd>
+            <dd className="mt-1">白地 / 濃色 · .dark</dd>
           </div>
           <div>
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">決定色</dt>
-            <dd className="mt-1">primary · forest</dd>
+            <dd className="mt-1">primary · blue</dd>
           </div>
           <div>
             <dt className="font-mono uppercase tracking-[0.06em] text-muted-foreground">本文</dt>
@@ -67,7 +67,7 @@ export function Gallery() {
         id="color"
         eyebrow="Color"
         title="色"
-        why="reference → semantic → component。部品は semantic だけ。アクセントは primary 1色。紫グラデは置かない。"
+        why="reference → semantic → component。部品は semantic だけ。決定は青1色。Funnel Orange は任意で1–2。紫グラデは置かない。"
       >
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {tokens.semantic.map((swatch) => (
@@ -169,7 +169,7 @@ export function Gallery() {
         <div className="mt-6 flex flex-wrap gap-2">
           <Badge>line</Badge>
           <Badge tone="accent">選択中</Badge>
-          <Badge tone="copper">注意</Badge>
+          <Badge tone="funnel">Funnel</Badge>
         </div>
       </Section>
 
@@ -204,7 +204,7 @@ export function Gallery() {
             </p>
             <TokenOrbit />
             <p className="mt-3 text-[13px] leading-[1.65] text-muted-foreground">
-              紙・森・銅。3色で足りることを示す軽い島。
+              白・青・Funnel。ブランド3色の軽い島。Orange はこの島とバッジだけ。
             </p>
           </div>
         </div>

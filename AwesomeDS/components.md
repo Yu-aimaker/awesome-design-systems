@@ -1,6 +1,6 @@
 # 部品
 
-実装は shadcn 型（コピーしてトークン接続）。見た目の既定は AwesomeDS トークン。チャット面が必要なら assistant-ui を足し、汎用部品は再発明しない。
+実装は shadcn 型（コピーしてトークン接続）。Phase1 の既定は shadcn。Base UI へ切り替えない。見た目の既定は AwesomeDS トークン。チャット面が必要なら assistant-ui を足し、汎用部品は再発明しない。
 
 ## 共通
 

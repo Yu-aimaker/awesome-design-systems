@@ -1,10 +1,12 @@
 # AwesomeDS Plugin
 
-Cursor / Claude に入れる Skill 4本。正本はリポジトリ直下の `AwesomeDS/`。
+Sir 内部 / 私用。Cursor Marketplace や公開ディレクトリへ出さない。公開は Sir が明示したときだけ。
 
-## 入れる
+正本はリポジトリ直下の `AwesomeDS/`。Skill 4本。
 
-この `Plugin/` を Cursor のローカルプラグインにコピーする。
+## 入れる（ローカルだけ）
+
+`Plugin/` を Cursor のローカルプラグインにコピーする。
 
 ```bash
 cp -R Plugin ~/.cursor/plugins/local/awesome-ds
@@ -13,6 +15,8 @@ cp -R Plugin ~/.cursor/plugins/local/awesome-ds
 またはリポジトリをクローンした状態で、Cursor のプラグイン設定から `Plugin/` を指定する。
 
 Claude Code の場合は各 `skills/*/SKILL.md` をプロジェクトの `.claude/skills/` へコピーする。
+
+Marketplace 用の `marketplace.json`、提出用パッケージ、公開用タグは作らない。
 
 ## Skill
 

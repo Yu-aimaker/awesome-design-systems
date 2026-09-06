@@ -17,7 +17,7 @@ const seed: DemoMessage[] = [
   { role: "user", content: "この画面の決定色はどれ？" },
   {
     role: "assistant",
-    content: "semantic の primary（森）。保存や次へにだけ使う。ナビ全体には塗らない。",
+    content: "semantic の primary（青）。保存や次へにだけ使う。ナビ全体には塗らない。Funnel Orange は任意で1–2。",
   },
 ];
 
@@ -29,8 +29,8 @@ const convertMessage = (message: DemoMessage): ThreadMessageLike => ({
 function replyTo(input: string): string {
   const text = input.trim();
   if (!text) return "空の送信です。本文を入れてください。";
-  if (/色|カラー|プライマリ|primary|color|forest/i.test(text)) {
-    return "primary は forest。部品は semantic 名だけ使う。Hex を JSX に書かない。";
+  if (/色|カラー|プライマリ|primary|color|blue|青|forest|funnel|オレンジ/i.test(text)) {
+    return "primary は青。Funnel Orange は任意で1面に最大1–2。部品は semantic 名だけ使う。Hex を JSX に書かない。";
   }
   if (/書体|フォント|font|geist|noto/i.test(text)) {
     return "Latin は Geist、日本語は Noto Sans JP。本文 16 / 行間 1.75。";

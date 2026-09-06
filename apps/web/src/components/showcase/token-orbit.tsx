@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-const COLORS = [0xf4efe6, 0x1f4d3a, 0xb4532a];
+const COLORS = [0xffffff, 0x2456d6, 0xe86a1a];
 
 export function TokenOrbit() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -13,7 +13,7 @@ export function TokenOrbit() {
     if (!host) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1c1916);
+    scene.background = new THREE.Color(0x1a1c24);
 
     const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
     camera.position.set(0, 1.4, 6.2);
@@ -22,10 +22,10 @@ export function TokenOrbit() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     host.appendChild(renderer.domElement);
 
-    const light = new THREE.DirectionalLight(0xfff8ef, 1.35);
+    const light = new THREE.DirectionalLight(0xf4f7ff, 1.35);
     light.position.set(3, 5, 4);
     scene.add(light);
-    scene.add(new THREE.AmbientLight(0x8a8378, 0.55));
+    scene.add(new THREE.AmbientLight(0x8a90a3, 0.55));
 
     const group = new THREE.Group();
     scene.add(group);
@@ -46,7 +46,7 @@ export function TokenOrbit() {
 
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(1.65, 0.018, 16, 80),
-      new THREE.MeshBasicMaterial({ color: 0xd9d2c6 }),
+      new THREE.MeshBasicMaterial({ color: 0xc9ced8 }),
     );
     ring.rotation.x = Math.PI / 2.3;
     scene.add(ring);

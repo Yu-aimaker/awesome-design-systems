@@ -1,14 +1,15 @@
 export const tokens = {
-  meta: { name: "AwesomeDS", version: "0.2.0" },
+  meta: { name: "AwesomeDS", version: "0.3.0" },
   semantic: [
-    { name: "background", light: "oklch(0.965 0.014 85)", dark: "oklch(0.22 0.012 70)", role: "ページ地" },
-    { name: "foreground", light: "oklch(0.22 0.012 70)", dark: "oklch(0.965 0.014 85)", role: "本文" },
-    { name: "card", light: "oklch(0.995 0.006 85)", dark: "oklch(0.26 0.014 70)", role: "カード" },
-    { name: "primary", light: "oklch(0.38 0.06 160)", dark: "oklch(0.68 0.07 160)", role: "決定・進行" },
-    { name: "muted-foreground", light: "oklch(0.48 0.016 70)", dark: "oklch(0.72 0.016 85)", role: "補助文" },
-    { name: "border", light: "oklch(0.88 0.018 85)", dark: "oklch(0.32 0.014 70)", role: "ヘアライン" },
+    { name: "background", light: "oklch(0.995 0.002 255)", dark: "oklch(0.18 0.02 260)", role: "白地" },
+    { name: "foreground", light: "oklch(0.18 0.02 260)", dark: "oklch(0.98 0.005 255)", role: "濃色本文" },
+    { name: "card", light: "oklch(1 0 0)", dark: "oklch(0.22 0.02 260)", role: "カード" },
+    { name: "primary", light: "oklch(0.42 0.15 255)", dark: "oklch(0.70 0.12 255)", role: "青・決定" },
+    { name: "muted-foreground", light: "oklch(0.46 0.02 260)", dark: "oklch(0.72 0.02 255)", role: "補助文" },
+    { name: "border", light: "oklch(0.90 0.008 255)", dark: "oklch(0.30 0.02 260)", role: "ヘアライン" },
     { name: "destructive", light: "oklch(0.5 0.14 25)", dark: "oklch(0.68 0.12 40)", role: "破壊・エラー" },
-    { name: "popover", light: "oklch(0.995 0.006 85)", dark: "oklch(0.26 0.014 70)", role: "一段上の面" },
+    { name: "funnel", light: "oklch(0.66 0.18 48)", dark: "oklch(0.74 0.16 50)", role: "任意・1面に1–2" },
+    { name: "popover", light: "oklch(1 0 0)", dark: "oklch(0.22 0.02 260)", role: "一段上の面" },
   ],
   font: { sans: "Geist", jp: "Noto Sans JP", mono: "Geist Mono" },
   type: {

@@ -1,10 +1,10 @@
 # AwesomeDS DESIGN.md
 
-Stitch 9節。エージェントはこれを先に読む。数値の正本は `tokens.json`。実装は semantic トークンだけ使う。
+Stitch 9節。エージェントはこれを先に読む。数値の正本は `tokens.json`。実装は semantic トークンだけ使う。STA-11 ロック。
 
 ## 1. Visual Theme & Atmosphere
 
-紙の地、墨の文字、森の決定色。密度は中。装飾は少なく、階層は型と余白で付ける。
+白地、濃色の文字、青の決定色。密度は中。装飾は少なく、階層は型と余白で付ける。
 
 品質の4点: Useful / Intuitive / Delightful / Polished。思考の6軸: Purpose / Agency / Simplicity / Craft / Delight / Long-view。
 
@@ -16,16 +16,17 @@ Reference（oklch）→ semantic → component。部品は semantic だけ。
 
 | Semantic | Light | Dark | 役割 |
 | --- | --- | --- | --- |
-| background | paper.100 | ink.900 | ページ地 |
-| foreground | ink.900 | paper.100 | 本文 |
+| background | paper.100 | ink.900 | 白地 |
+| foreground | ink.900 | paper.100 | 濃色本文 |
 | card | paper.50 | ink.800 | カード |
-| primary | forest.700 | forest.400 | 決定・進行。1面に1つ |
+| primary | blue.700 | blue.400 | 決定・進行。1面に1つ |
 | muted-foreground | ink.500 | ink.400 | 補助文 |
 | border | paper.300 | ink.700 | ヘアライン |
 | destructive | rust.700 | rust.400 | 破壊。primary の再利用禁止 |
+| funnel | funnel.600 | funnel.400 | 任意。1面に最大1–2 |
 | ring | ink.900 | paper.100 | フォーカス |
 
-アクセントは primary 1色。銅（rust）は注意だけ。紫グラデは禁止。
+ブランドは白 + 濃色 + 青。Funnel Orange（`funnel`）はハイライト専用。ナビや全面 CTA に使わない。紫グラデは禁止。
 
 ## 3. Typography Rules
 
@@ -48,7 +49,7 @@ Inter を既定にしない。ウェイトは 400 / 500 / 600。
 
 ## 4. Component Stylings
 
-shadcn 型。コピーしたあと必ずこのトークンでリテーマする。チャット面は assistant-ui primitives。
+shadcn 型（Phase1 の既定。Base UI への切替はしない）。コピーしたあと必ずこのトークンでリテーマする。チャット面は assistant-ui primitives。
 
 - Button: h-10、radius md。primary / secondary / ghost / destructive。
 - Input: ラベル上。プレースホルダをラベル代わりにしない。
@@ -71,7 +72,7 @@ shadcn 型。コピーしたあと必ずこのトークンでリテーマする�
 
 Do: 目的を1文で置く。primary は決定にだけ。Reduce Motion を実装する。キャプチャで検証する。
 
-Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超の全面丸、3つ目のブランド色、説明のない 3D、空中のスローガン。
+Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超の全面丸、Funnel を3つ以上、説明のない 3D、空中のスローガン。
 
 ## 8. Responsive Behavior
 
@@ -83,10 +84,10 @@ Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超�
 AwesomeDS/DESIGN.md と tokens.json に従え。
 semantic トークン以外の Hex を部品に書くな。
 日本語 UI は Noto Sans JP、行間 1.75、禁則。
-1面の primary は1つ。
+1面の primary は1つ。Funnel Orange は任意で最大1–2。
 prefers-reduced-motion を実装しろ。
 比喩とダッシュ連打を書くな。
 終わったら DesignVerifier のキャプチャ表を回せ。
 ```
 
-Quick colors: background `paper`、foreground `ink`、CTA `forest`、danger `rust`。
+Quick colors: background `paper`、foreground `ink`、CTA `blue`、optional `funnel`、danger `rust`。
