@@ -1,39 +1,54 @@
-/* eslint-disable @next/next/no-page-custom-font -- This stylesheet is in the shared App Router root layout. */
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Geist, Geist_Mono, Noto_Sans_JP } from 'next/font/google';
 import { Shell } from '@/components/docs/shell';
 import './globals.css';
-const geist = localFont({
-  src: '../fonts/geist-latin.woff2',
+
+const geist = Geist({
   variable: '--font-geist',
-  weight: '100 900',
-  display: 'swap'
+  subsets: ['latin'],
 });
-const mono = localFont({
-  src: '../fonts/geist-mono-latin.woff2',
+
+const mono = Geist_Mono({
   variable: '--font-geist-mono',
-  weight: '100 900',
-  display: 'swap'
+  subsets: ['latin'],
 });
+
+const noto = Noto_Sans_JP({
+  variable: '--font-noto',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+});
+
 export const metadata: Metadata = {
   title: {
     default: 'AwesomeDS · Documentation',
-    template: '%s · AwesomeDS'
+    template: '%s · AwesomeDS',
   },
-  description: 'AwesomeDS foundations, interactive component previews, and internal design skills.'
+  description:
+    'AwesomeDS foundations, interactive component previews, and internal design skills.',
 };
+
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="en" suppressHydrationWarning className={`${geist.variable} ${mono.variable}`}>
-    <head>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=swap" />
-      <script dangerouslySetInnerHTML={{
-        __html: `try{document.documentElement.classList.toggle('dark',localStorage.getItem('awesomeds-theme')==='dark')}catch{}`
-      }} />
-    </head>
-    <body><Shell>{children}</Shell></body>
-  </html>;
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geist.variable} ${mono.variable} ${noto.variable}`}
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.classList.toggle('dark',localStorage.getItem('awesomeds-theme')==='dark')}catch{}`,
+          }}
+        />
+      </head>
+      <body>
+        <Shell>{children}</Shell>
+      </body>
+    </html>
+  );
 }

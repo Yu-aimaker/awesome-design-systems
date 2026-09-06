@@ -1,5 +1,5 @@
-# Font assets
+# Fonts
 
-Geist and Geist Mono Latin variable WOFF2 files are self-hosted. These unmodified files come from the installed Next.js 16.3.4 distribution (`next/dist/next-devtools/server/font/`). Their embedded metadata identifies Geist 1.401 and the Open Font License. See OFL.txt.
+Production layout uses `next/font/google` (`Geist`, `Geist_Mono`, `Noto_Sans_JP`) so preview builds without self-hosted `woff2`.
 
-Noto Sans JP is requested through the Google Fonts stylesheet at runtime, with local Noto Sans JP / Noto Sans CJK JP and system sans-serif fallbacks. Production builds do not fetch fonts.
+Self-hosted Geist files remain optional for later OSS packaging; they are not required for the current Vercel preview path.
