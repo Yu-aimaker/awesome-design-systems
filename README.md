@@ -34,7 +34,7 @@ pnpm install
 pnpm dev
 ```
 
-Vercel の Root Directory は `apps/web`。設定は `apps/web/vercel.json`。
+Vercel に出すときは Root Directory を `apps/web` にする。`apps/web/vercel.json` の framework は nextjs。
 
 ## Phase1 done（STA-11）
 

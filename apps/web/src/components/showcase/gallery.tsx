@@ -20,7 +20,7 @@ const typeRows = [
 
 const principles = [
   { n: "01", t: "Purpose", d: "この面の目的を1文で書く。書けない画面は作らない。" },
-  { n: "02", t: "Agency", d: "止められる、戻れる、失敗しても次の手が残る。" },
+  { n: "02", t: "Agency", d: "Responsibility。止められる（stop）、やり直せる（undo）。失敗しても次の手が残る。" },
   { n: "03", t: "Simplicity", d: "部品を足す前に、コピーと順序で足りるか見る。" },
   { n: "04", t: "Craft", d: "semantic トークン、禁則、フォーカスを守る。" },
   { n: "05", t: "Delight", d: "結果が変わった瞬間だけ動かす。ループ装飾は置かない。" },

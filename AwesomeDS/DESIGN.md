@@ -8,6 +8,8 @@ Stitch 9節。エージェントはこれを先に読む。数値の正本は `t
 
 品質の4点: Useful / Intuitive / Delightful / Polished。思考の6軸: Purpose / Agency / Simplicity / Craft / Delight / Long-view。
 
+**Responsibility（stop / undo）:** 破壊操作は止められる。送信後は戻れるか、失敗しても次の手が残る。止められない流れは作らない。
+
 JA first、英語ラベルは短く併記。本文行間 1.75、行長 35–45 字。CSS は `line-break: strict`（禁則）。`palt` は本文のみ。見出しは `kern`、`palt` を切る。
 
 ## 2. Color Palette & Roles
@@ -70,7 +72,7 @@ shadcn 型（Phase1 の既定。Base UI への切替はしない）。コピー�
 
 ## 7. Do's and Don'ts
 
-Do: 目的を1文で置く。primary は決定にだけ。Reduce Motion を実装する。キャプチャで検証する。
+Do: 目的を1文で置く。primary は決定にだけ。破壊は stop / undo を残す。Reduce Motion を実装する。キャプチャで検証する。
 
 Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超の全面丸、Funnel を3つ以上、説明のない 3D、空中のスローガン。
 
