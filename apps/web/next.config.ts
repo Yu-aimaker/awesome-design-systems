@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
-
+import type { NextConfig } from 'next';
+import path from 'node:path';
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    useTypeScriptCli: false,
+    webpackBuildWorker: false
+  },
+  turbopack: {
+    root: path.resolve(process.cwd(), '../..')
+  }
 };
-
 export default nextConfig;

@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:canon": "node scripts/sync-canon.mjs",
+    "prebuild": "pnpm sync:canon",
+    "predev": "pnpm sync:canon"
   },
   "dependencies": {
     "@assistant-ui/react": "^0.15.18",
