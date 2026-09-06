@@ -8,7 +8,6 @@ export const tokens = {
     { name: "muted-foreground", light: "oklch(0.46 0.02 260)", dark: "oklch(0.72 0.02 255)", role: "補助文" },
     { name: "border", light: "oklch(0.90 0.008 255)", dark: "oklch(0.30 0.02 260)", role: "ヘアライン" },
     { name: "destructive", light: "oklch(0.5 0.14 25)", dark: "oklch(0.68 0.12 40)", role: "破壊・エラー" },
-    { name: "funnel", light: "oklch(0.66 0.18 48)", dark: "oklch(0.74 0.16 50)", role: "任意・1面に1–2" },
     { name: "popover", light: "oklch(1 0 0)", dark: "oklch(0.22 0.02 260)", role: "一段上の面" },
   ],
   font: { sans: "Geist", jp: "Noto Sans JP", mono: "Geist Mono" },
