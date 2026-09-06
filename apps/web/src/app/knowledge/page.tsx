@@ -73,6 +73,17 @@ export default function KnowledgePage() {
       <p className="mt-5 text-[16px] leading-[1.75] tracking-[0.01em] text-muted-foreground">
         リポジトリの <code className="font-mono text-[13px] text-foreground">Knowledge/</code> と同じ題材。全文は Markdown、ここはショーケース用の要約。
       </p>
+      <nav className="mt-8 flex flex-col gap-2" aria-label="記事">
+        {articles.map((item) => (
+          <a
+            key={`toc-${item.id}`}
+            href={`#${item.id}`}
+            className="text-[14px] text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+          >
+            {item.title}
+          </a>
+        ))}
+      </nav>
       <div className="mt-12 flex flex-col gap-12">
         {articles.map((item) => (
           <section key={item.id} id={item.id} className="scroll-mt-24">

@@ -29,10 +29,10 @@ const convertMessage = (message: DemoMessage): ThreadMessageLike => ({
 function replyTo(input: string): string {
   const text = input.trim();
   if (!text) return "空の送信です。本文を入れてください。";
-  if (/色|color|primary/i.test(text)) {
+  if (/色|カラー|プライマリ|primary|color|forest/i.test(text)) {
     return "primary は forest。部品は semantic 名だけ使う。Hex を JSX に書かない。";
   }
-  if (/書体|font|geist/i.test(text)) {
+  if (/書体|フォント|font|geist|noto/i.test(text)) {
     return "Latin は Geist、日本語は Noto Sans JP。本文 16 / 行間 1.75。";
   }
   return `受け取った: 「${text}」。これはローカルデモで、モデルAPIは呼ばない。`;
