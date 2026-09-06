@@ -1,0 +1,25 @@
+{
+  "name": "awesome-ds",
+  "displayName": "AwesomeDS",
+  "version": "0.1.0",
+  "description": "Apply, generate, and verify product UI against the AwesomeDS canon.",
+  "author": {
+    "name": "STARKIndustries",
+    "email": "yu-aimaker"
+  },
+  "homepage": "https://github.com/Yu-aimaker/awesome-design-systems",
+  "repository": "https://github.com/Yu-aimaker/awesome-design-systems",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "frontend",
+    "design-thinking"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "design",
+    "ui",
+    "verification"
+  ],
+  "skills": "./skills/"
+}
