@@ -1,6 +1,6 @@
 # AwesomeDS DESIGN.md
 
-Stitch 9節。エージェントはこれを先に読む。数値の正本は `tokens.json`。実装は semantic トークンだけ使う。STA-11 ロック。
+Stitch 9節。エージェントはこれを先に読む。数値の正本は `tokens.json`。実装は semantic トークンだけ使う。STA-19 C。
 
 ## 1. Visual Theme & Atmosphere
 
@@ -25,10 +25,8 @@ Reference（oklch）→ semantic → component。部品は semantic だけ。
 | muted-foreground | ink.500 | ink.400 | 補助文 |
 | border | paper.300 | ink.700 | ヘアライン |
 | destructive | rust.700 | rust.400 | 破壊。primary の再利用禁止 |
-| funnel | funnel.600 | funnel.400 | 任意。1面に最大1–2 |
 | ring | ink.900 | paper.100 | フォーカス |
 
-ブランドは白 + 濃色 + 青。Funnel Orange（`funnel`）はハイライト専用。ナビや全面 CTA に使わない。紫グラデは禁止。
 
 ## 3. Typography Rules
 
@@ -74,11 +72,10 @@ shadcn 型（Phase1 の既定。Base UI への切替はしない）。コピー�
 
 Do: 目的を1文で置く。primary は決定にだけ。破壊は stop / undo を残す。Reduce Motion を実装する。キャプチャで検証する。
 
-Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超の全面丸、Funnel を3つ以上、説明のない 3D、空中のスローガン。
 
 ## 8. Responsive Behavior
 
-ブレークポイント: 390 / 768 / 1080。モバイル左右ガター 16 以上。タップ 40px、主要操作 44px。レールは `lg` 未満で上の横スクロールナビへ。
+ブレークポイント: 390 / 768 / 1080。モバイル左右ガター 16 以上。タップ 40px、主要操作 44px。レールは 768px 未満でフォーカスを閉じ込めるモバイルドロワーへ。
 
 ## 9. Agent Prompt Guide
 
@@ -86,10 +83,10 @@ Don't: 紫グラデ、Inter 既定、偽スクリーンショット、16px 超�
 AwesomeDS/DESIGN.md と tokens.json に従え。
 semantic トークン以外の Hex を部品に書くな。
 日本語 UI は Noto Sans JP、行間 1.75、禁則。
-1面の primary は1つ。Funnel Orange は任意で最大1–2。
 prefers-reduced-motion を実装しろ。
 比喩とダッシュ連打を書くな。
 終わったら DesignVerifier のキャプチャ表を回せ。
 ```
 
-Quick colors: background `paper`、foreground `ink`、CTA `blue`、optional `funnel`、danger `rust`。
+
+Palette: white + dark + blue. Simple motion uses owned CSS duration/easing tokens. Complex layout uses motion/react; completion uses lottie-react. Three is optional for spatial explanations. All demos are preview-first, opt-in, stoppable, and respect reduced motion.

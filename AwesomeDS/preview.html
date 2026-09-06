@@ -1,97 +1,72 @@
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AwesomeDS preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --background: oklch(0.995 0.002 255);
-        --foreground: oklch(0.18 0.02 260);
-        --card: oklch(1 0 0);
-        --primary: oklch(0.42 0.15 255);
-        --muted: oklch(0.46 0.02 260);
-        --border: oklch(0.9 0.008 255);
-        --destructive: oklch(0.5 0.14 25);
-        --funnel: oklch(0.66 0.18 48);
-      }
-      .dark {
-        --background: oklch(0.18 0.02 260);
-        --foreground: oklch(0.98 0.005 255);
-        --card: oklch(0.22 0.02 260);
-        --primary: oklch(0.7 0.12 255);
-        --muted: oklch(0.72 0.02 255);
-        --border: oklch(0.3 0.02 260);
-        --destructive: oklch(0.68 0.12 40);
-        --funnel: oklch(0.74 0.16 50);
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        background: var(--background);
-        color: var(--foreground);
-        font: 16px/1.75 Geist, "Noto Sans JP", sans-serif;
-        padding: 48px 24px 96px;
-      }
-      main { max-width: 720px; margin: 0 auto; }
-      h1 { font-size: 32px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; }
-      h2 { font-size: 22px; margin-top: 48px; }
-      p { color: var(--muted); }
-      .row { display: flex; gap: 12px; flex-wrap: wrap; }
-      .swatch { width: 120px; border: 1px solid var(--border); background: var(--card); }
-      .swatch i { display: block; height: 56px; }
-      .swatch b, .swatch span { display: block; padding: 0 8px; font: 11px/1.6 "Geist Mono", monospace; }
-      .swatch span { padding-bottom: 8px; color: var(--muted); }
-      button {
-        height: 40px;
-        border: 0;
-        border-radius: 8px;
-        padding: 0 16px;
-        font: 500 15px/1 Geist, "Noto Sans JP", sans-serif;
-      }
-      .btn-p { background: var(--primary); color: var(--background); }
-      .btn-s { background: var(--card); color: var(--foreground); border: 1px solid var(--border); }
-      .type { border-top: 1px solid var(--border); padding: 12px 0; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p style="font: 11px/1.4 Geist Mono, monospace; letter-spacing: 0.06em; text-transform: uppercase;">AwesomeDS · preview.html</p>
-      <h1>トークン可視化</h1>
-      <p>DESIGN.md と同じ semantic 面。アプリのショーケースと値を揃える。白地・濃色・青。Funnel は任意1色。</p>
-      <p><button type="button" class="btn-s" id="toggle">.dark を切替</button></p>
-
-      <h2>Color</h2>
-      <div class="row">
-        <div class="swatch"><i style="background: var(--background)"></i><b>background</b><span>白地</span></div>
-        <div class="swatch"><i style="background: var(--foreground)"></i><b>foreground</b><span>本文</span></div>
-        <div class="swatch"><i style="background: var(--primary)"></i><b>primary</b><span>青・決定</span></div>
-        <div class="swatch"><i style="background: var(--funnel)"></i><b>funnel</b><span>任意 1–2</span></div>
-        <div class="swatch"><i style="background: var(--border)"></i><b>border</b><span>ヘアライン</span></div>
-        <div class="swatch"><i style="background: var(--destructive)"></i><b>destructive</b><span>破壊</span></div>
-      </div>
-
-      <h2>Type</h2>
-      <div class="type" style="font-size: 32px; line-height: 1.25; letter-spacing: -0.02em;">見出しは順位を先に決める</div>
-      <div class="type">本文は 16 / 1.75。日本語は 35–45 字で折り返す。</div>
-      <div class="type" style="font: 12px/1.4 Geist Mono, monospace; letter-spacing: 0.06em;">TOKEN / LABEL</div>
-
-      <h2>Components</h2>
-      <div class="row">
-        <button type="button" class="btn-p">保存する</button>
-        <button type="button" class="btn-s">戻る</button>
-      </div>
-    </main>
-    <script>
-      document.getElementById("toggle").onclick = () => {
-        document.documentElement.classList.toggle("dark");
-      };
-    </script>
-  </body>
-</html>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AwesomeDS token preview</title><style>:root {
+  --background: oklch(0.995 0.002 255);
+  --foreground: oklch(0.18 0.02 260);
+  --card: oklch(1 0 0);
+  --primary: oklch(0.42 0.15 255);
+  --primary-foreground: oklch(1 0 0);
+  --muted-foreground: oklch(0.46 0.02 260);
+  --accent: oklch(0.90 0.008 255);
+  --border: oklch(0.90 0.008 255);
+  --destructive: oklch(0.5 0.14 25);
+  --ring: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0);
+}
+.dark {
+  --background: oklch(0.18 0.02 260);
+  --foreground: oklch(0.995 0.002 255);
+  --card: oklch(0.22 0.02 260);
+  --primary: oklch(0.70 0.12 255);
+  --primary-foreground: oklch(0.18 0.02 260);
+  --muted-foreground: oklch(0.62 0.018 260);
+  --accent: oklch(0.28 0.022 260);
+  --border: oklch(0.28 0.022 260);
+  --destructive: oklch(0.68 0.12 40);
+  --ring: oklch(0.995 0.002 255);
+  --popover: oklch(0.22 0.02 260);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --type-display: 48px;
+  --line-display: 1.15;
+  --weight-display: 500;
+  --tracking-display: -0.03em;
+  --type-title: 32px;
+  --line-title: 1.25;
+  --weight-title: 500;
+  --tracking-title: -0.02em;
+  --type-heading: 22px;
+  --line-heading: 1.4;
+  --weight-heading: 500;
+  --tracking-heading: -0.015em;
+  --type-body: 16px;
+  --line-body: 1.75;
+  --weight-body: 400;
+  --tracking-body: 0.01em;
+  --type-small: 13px;
+  --line-small: 1.65;
+  --weight-small: 400;
+  --tracking-small: 0.01em;
+  --type-label: 12px;
+  --line-label: 1.4;
+  --weight-label: 500;
+  --tracking-label: 0.06em;
+  --layout-page: 1080px;
+  --layout-rail: 232px;
+  --layout-gutter: 24px;
+}body{background:var(--background);color:var(--foreground);font:16px/1.75 system-ui;margin:24px}button{background:var(--primary);color:var(--primary-foreground);padding:12px 24px;border:0;border-radius:var(--radius-md)}main{max-width:800px}section{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0}.swatch{width:140px}i{display:block;height:80px;border:1px solid var(--border);border-radius:var(--radius-md)}</style><main><h1>AwesomeDS tokens</h1><p>White and dark surfaces. Blue decisions. Generated from tokens.json.</p><button onclick="document.documentElement.classList.toggle('dark')">Toggle theme</button><section><div class="swatch"><i style="background:var(--background)"></i>background</div><div class="swatch"><i style="background:var(--foreground)"></i>foreground</div><div class="swatch"><i style="background:var(--card)"></i>card</div><div class="swatch"><i style="background:var(--primary)"></i>primary</div><div class="swatch"><i style="background:var(--primary-foreground)"></i>primary-foreground</div><div class="swatch"><i style="background:var(--muted-foreground)"></i>muted-foreground</div><div class="swatch"><i style="background:var(--accent)"></i>accent</div><div class="swatch"><i style="background:var(--border)"></i>border</div><div class="swatch"><i style="background:var(--destructive)"></i>destructive</div><div class="swatch"><i style="background:var(--ring)"></i>ring</div><div class="swatch"><i style="background:var(--popover)"></i>popover</div></section><p>Live component previews: apps/web → /gallery</p></main></html>
